@@ -1,0 +1,24 @@
+{
+  "name": "DS Vedanta",
+  "short_name": "DSvedanta",
+  "description": "DS Vedanta Academy — Resources, Books, Papers & Pixie AI Study Buddy",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0a4a42",
+  "theme_color": "#0a4a42",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0a4a42">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Previous year board papers and sample papers for Class 10 — CBSE, ICSE & JAC boards. Free download. DS Vedanta Academy, Sindri, Dhanbad.">
+<meta name="keywords" content="previous year papers Class 10 Sindri, CBSE board paper 2024, JAC board paper Dhanbad, ICSE paper free download, sample paper Class 10">
+<title>Previous Year Papers | DS Vedanta Academy — Class 10 CBSE ICSE JAC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --teal:#1a9e8f;
+  --teal-dark:#0f6e63;
+  --teal-deep:#0a4a42;
+  --teal-light:#e6f7f5;
+  --teal-mid:#2dbdac;
+  --gold:#c9a84c;
+  --gold-light:#f5e9c8;
+  --bg:#ffffff;
+  --bg2:#f4faf9;
+  --bg3:#e9f5f3;
+  --text:#1a2e2c;
+  --muted:#5a7a77;
+  --border:#c8e6e2;
+  --white:#ffffff;
+
+  /* board colours */
+  --cbse:#1d4ed8;
+  --cbse-light:#dbeafe;
+  --icse:#7c3aed;
+  --icse-light:#ede9fe;
+  --jac:#b45309;
+  --jac-light:#fef3c7;
+
+  /* paper type colours */
+  --pyp:#0f6e63;
+  --pyp-light:#e6f7f5;
+  --sample:#9d174d;
+  --sample-light:#fce7f3;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;line-height:1.7;overflow-x:hidden;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0.9rem 3rem;
+  background:rgba(255,255,255,0.95);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  box-shadow:0 2px 20px rgba(26,158,143,0.08);
+}
+.nav-brand{display:flex;align-items:center;gap:0.8rem;text-decoration:none;}
+.nav-logo-wrap{width:46px;height:46px;display:flex;align-items:center;justify-content:center;}
+.nav-name{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--teal-dark);line-height:1.1;}
+.nav-name small{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:0.62rem;font-weight:400;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-top:1px;}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.88rem;font-weight:500;transition:color 0.2s;}
+.nav-links a:hover{color:var(--teal);}
+.nav-links a.active{color:var(--teal);font-weight:700;border-bottom:2px solid var(--teal);padding-bottom:2px;}
+.nav-cta{background:var(--teal);color:#fff;padding:0.5rem 1.4rem;border-radius:50px;font-size:0.85rem;font-weight:600;text-decoration:none;transition:background 0.2s,transform 0.2s;}
+.nav-cta:hover{background:var(--teal-dark);transform:translateY(-1px);}
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:4px;}
+.hamburger span{display:block;width:24px;height:2px;background:var(--teal-dark);border-radius:2px;transition:all 0.3s;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-menu{
+  display:none;position:fixed;top:64px;left:0;right:0;z-index:99;
+  background:rgba(255,255,255,0.98);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);padding:1rem 1.5rem 1.5rem;
+  flex-direction:column;gap:0.2rem;bottom:62px;overflow-y:auto;
+}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{color:var(--text);text-decoration:none;font-size:1rem;font-weight:500;padding:0.7rem 0;border-bottom:1px solid var(--border);transition:color 0.2s;}
+.mobile-menu a:last-child{border-bottom:none;}
+.mobile-menu a:hover,.mobile-menu a.active{color:var(--teal);}
+.mobile-menu .mob-cta{margin-top:0.8rem;background:var(--teal);color:#fff;text-align:center;padding:0.8rem;border-radius:50px;font-weight:600;border-bottom:none;}
+.mobile-menu .mob-cta:hover{background:var(--teal-dark);}
+
+/* ── PAGE HERO ── */
+.page-hero{
+  padding:7.5rem 3rem 3.5rem;
+  background:linear-gradient(135deg,#f0faf9 0%,#e4f5f2 50%,#fdf9f0 100%);
+  position:relative;overflow:hidden;border-bottom:1px solid var(--border);
+}
+.page-hero::before{
+  content:'';position:absolute;top:-60px;right:-60px;
+  width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(26,158,143,0.1) 0%,transparent 70%);pointer-events:none;
+}
+.page-hero::after{
+  content:'📝';position:absolute;right:6rem;bottom:-10px;
+  font-size:8rem;opacity:0.06;pointer-events:none;line-height:1;
+}
+.hero-inner{max-width:1100px;margin:0 auto;}
+.breadcrumb{display:flex;align-items:center;gap:0.5rem;margin-bottom:1.2rem;font-size:0.8rem;color:var(--muted);}
+.breadcrumb a{color:var(--teal);text-decoration:none;font-weight:500;}
+.breadcrumb a:hover{text-decoration:underline;}
+.breadcrumb span{opacity:0.5;}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  font-size:0.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  color:var(--teal);background:rgba(26,158,143,0.08);border:1px solid rgba(26,158,143,0.2);
+  padding:0.35rem 1rem;border-radius:50px;margin-bottom:1rem;
+}
+.hero-tag::before{content:'';display:block;width:6px;height:6px;background:var(--teal);border-radius:50%;}
+.page-hero h1{
+  font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.2rem);
+  font-weight:800;line-height:1.1;color:var(--teal-deep);letter-spacing:-1px;margin-bottom:0.8rem;
+}
+.page-hero p{color:var(--muted);font-size:1rem;max-width:520px;line-height:1.8;}
+.hero-stats{display:flex;gap:2rem;margin-top:1.8rem;flex-wrap:wrap;}
+.hero-stat{display:flex;align-items:center;gap:0.6rem;}
+.hero-stat-icon{width:36px;height:36px;border-radius:10px;background:var(--teal-light);display:flex;align-items:center;justify-content:center;font-size:1rem;}
+.hero-stat-text{font-size:0.8rem;color:var(--muted);line-height:1.3;}
+.hero-stat-text strong{display:block;font-size:0.95rem;font-weight:700;color:var(--teal-deep);}
+
+/* ── BOARD LEGEND ── */
+.board-legend{
+  background:linear-gradient(135deg,var(--teal-deep),var(--teal-dark));
+  padding:1.2rem 3rem;
+  display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap;
+}
+.legend-item{display:flex;align-items:center;gap:0.6rem;color:#fff;}
+.legend-dot{width:12px;height:12px;border-radius:3px;flex-shrink:0;}
+.legend-dot.cbse{background:#60a5fa;}
+.legend-dot.icse{background:#a78bfa;}
+.legend-dot.jac{background:#fcd34d;}
+.legend-dot.pyp{background:#5eead4;}
+.legend-dot.sample{background:#f9a8d4;}
+.legend-text{font-size:0.8rem;font-weight:500;opacity:0.9;}
+.legend-sep{width:1px;height:20px;background:rgba(255,255,255,0.2);}
+
+/* ── MAIN ── */
+.main-wrap{max-width:1100px;margin:0 auto;padding:3rem 3rem 5rem;}
+
+/* ── FILTER SECTION ── */
+.filter-section{margin-bottom:2.5rem;}
+.filter-group{margin-bottom:1rem;}
+.filter-label{font-size:0.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:0.6rem;display:block;}
+.filter-row{display:flex;gap:0.5rem;flex-wrap:wrap;}
+.filter-btn{
+  background:#fff;border:1.5px solid var(--border);color:var(--muted);
+  padding:0.45rem 1.1rem;border-radius:50px;font-size:0.82rem;font-weight:500;
+  cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;
+  transition:all 0.2s;display:flex;align-items:center;gap:0.4rem;white-space:nowrap;
+}
+.filter-btn:hover{border-color:var(--teal);color:var(--teal);background:var(--teal-light);}
+.filter-btn.active{border-color:var(--teal);color:var(--teal-dark);background:var(--teal-light);font-weight:700;}
+.filter-btn .f-icon{font-size:0.9rem;}
+.filter-divider{border:none;border-top:1px dashed var(--border);margin:1.2rem 0;}
+
+/* board filter active colours */
+#board-filters .filter-btn[data-board="cbse"].active{border-color:var(--cbse);color:var(--cbse);background:var(--cbse-light);}
+#board-filters .filter-btn[data-board="icse"].active{border-color:var(--icse);color:var(--icse);background:var(--icse-light);}
+#board-filters .filter-btn[data-board="jac"].active{border-color:var(--jac);color:var(--jac);background:var(--jac-light);}
+
+/* type filter */
+#type-filters .filter-btn[data-ptype="pyp"].active{border-color:var(--pyp);color:var(--pyp);background:var(--pyp-light);}
+#type-filters .filter-btn[data-ptype="sample"].active{border-color:var(--sample);color:var(--sample);background:var(--sample-light);}
+
+/* ── RESULTS META ── */
+.results-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:0.8rem;}
+.results-count{font-size:0.85rem;color:var(--muted);}
+.results-count strong{color:var(--teal-dark);font-weight:700;}
+.sort-note{font-size:0.78rem;color:var(--muted);font-style:italic;}
+
+/* ── CLASS SECTION ── */
+.class-section{margin-bottom:3.5rem;}
+.class-header{
+  display:flex;align-items:center;gap:1rem;
+  margin-bottom:1.5rem;padding-bottom:0.8rem;
+  border-bottom:2px solid var(--border);
+}
+.class-badge{
+  background:linear-gradient(135deg,var(--teal),var(--teal-mid));
+  color:#fff;font-family:'Playfair Display',serif;font-size:0.85rem;font-weight:700;
+  padding:0.4rem 1rem;border-radius:50px;letter-spacing:0.5px;white-space:nowrap;
+}
+.class-header h2{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--teal-deep);}
+.class-count{margin-left:auto;font-size:0.75rem;color:var(--muted);background:var(--bg2);border:1px solid var(--border);padding:0.25rem 0.75rem;border-radius:50px;white-space:nowrap;}
+
+/* ── BOARD GROUP ── */
+.board-group{margin-bottom:2rem;}
+.board-header{display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;}
+.board-pill{
+  font-size:0.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+  padding:0.3rem 0.85rem;border-radius:50px;white-space:nowrap;
+}
+.board-pill.cbse{background:var(--cbse-light);color:var(--cbse);border:1.5px solid #93c5fd;}
+.board-pill.icse{background:var(--icse-light);color:var(--icse);border:1.5px solid #c4b5fd;}
+.board-pill.jac{background:var(--jac-light);color:var(--jac);border:1.5px solid #fcd34d;}
+.board-full-name{font-size:0.85rem;font-weight:600;color:var(--teal-deep);}
+.board-divider{flex:1;height:1px;background:var(--border);margin-left:0.5rem;}
+
+/* ── PAPERS GRID ── */
+.papers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1rem;}
+
+/* ── PAPER CARD ── */
+.paper-card{
+  background:#fff;border:1.5px solid var(--border);border-radius:16px;
+  padding:1.3rem;display:flex;flex-direction:column;gap:0.9rem;
+  transition:border-color 0.25s,box-shadow 0.25s,transform 0.25s;
+  position:relative;overflow:hidden;
+}
+.paper-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;opacity:0;transition:opacity 0.25s;
+}
+.paper-card.cbse::before{background:linear-gradient(90deg,#1d4ed8,#3b82f6);}
+.paper-card.icse::before{background:linear-gradient(90deg,#7c3aed,#a78bfa);}
+.paper-card.jac::before{background:linear-gradient(90deg,#b45309,#f59e0b);}
+.paper-card:hover{border-color:var(--teal);box-shadow:0 8px 28px rgba(26,158,143,0.12);transform:translateY(-2px);}
+.paper-card:hover::before{opacity:1;}
+.paper-card.coming-soon{background:var(--bg2);border-style:dashed;opacity:0.75;}
+.paper-card.coming-soon:hover{transform:none;box-shadow:none;border-color:var(--border);}
+
+/* card top row */
+.card-top{display:flex;align-items:flex-start;gap:0.85rem;}
+
+/* paper icon — looks like a paper */
+.paper-icon-box{
+  width:46px;height:56px;border-radius:4px 10px 10px 4px;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;font-size:1.2rem;position:relative;
+}
+.paper-icon-box.cbse{background:linear-gradient(160deg,#dbeafe,#bfdbfe);border-left:4px solid #1d4ed8;}
+.paper-icon-box.icse{background:linear-gradient(160deg,#ede9fe,#ddd6fe);border-left:4px solid #7c3aed;}
+.paper-icon-box.jac{background:linear-gradient(160deg,#fef3c7,#fde68a);border-left:4px solid #b45309;}
+.paper-icon-box.soon{background:var(--bg3);border-left:4px solid var(--border);}
+
+.card-info{flex:1;min-width:0;}
+.card-title{font-family:'Playfair Display',serif;font-size:0.92rem;font-weight:700;color:var(--teal-deep);line-height:1.3;margin-bottom:0.2rem;}
+.card-sub{font-size:0.73rem;color:var(--muted);line-height:1.5;}
+
+/* ── TAGS ── */
+.card-tags{display:flex;gap:0.4rem;flex-wrap:wrap;}
+.ctag{font-size:0.65rem;font-weight:600;letter-spacing:0.5px;padding:0.2rem 0.6rem;border-radius:50px;background:var(--bg3);border:1px solid var(--border);color:var(--muted);}
+.ctag.board-cbse{background:var(--cbse-light);color:var(--cbse);border-color:#93c5fd;}
+.ctag.board-icse{background:var(--icse-light);color:var(--icse);border-color:#c4b5fd;}
+.ctag.board-jac{background:var(--jac-light);color:var(--jac);border-color:#fcd34d;}
+.ctag.type-pyp{background:var(--pyp-light);color:var(--pyp);border-color:var(--teal-mid);}
+.ctag.type-sample{background:var(--sample-light);color:var(--sample);border-color:#f9a8d4;}
+.ctag.year{background:var(--gold-light);color:#7a5c00;border-color:#e6d084;}
+.ctag.subj{background:var(--bg2);color:var(--teal-dark);border-color:var(--border);}
+
+/* ── ACTIONS ── */
+.card-actions{display:flex;gap:0.6rem;margin-top:auto;}
+.btn-view,.btn-dl,.btn-soon{
+  flex:1;text-align:center;padding:0.6rem 0.5rem;border-radius:9px;
+  font-size:0.8rem;font-weight:600;text-decoration:none;transition:all 0.2s;
+  display:flex;align-items:center;justify-content:center;gap:0.35rem;
+  cursor:pointer;border:none;font-family:'Plus Jakarta Sans',sans-serif;
+}
+.btn-view{background:var(--teal-light);color:var(--teal-dark);border:1.5px solid var(--border);}
+.btn-view:hover{background:var(--teal);color:#fff;border-color:var(--teal);}
+.btn-dl{background:#fff;color:var(--teal);border:1.5px solid var(--teal);}
+.btn-dl:hover{background:var(--teal);color:#fff;}
+.btn-soon{background:var(--bg3);color:var(--muted);border:1.5px solid var(--border);cursor:default;font-style:italic;}
+
+/* ── NO RESULTS ── */
+.no-results{display:none;text-align:center;padding:4rem 1rem;color:var(--muted);width:100%;}
+.no-results .nr-icon{font-size:3.5rem;display:block;margin-bottom:1rem;}
+.no-results h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--teal-deep);margin-bottom:0.5rem;}
+.no-results p{font-size:0.9rem;max-width:320px;margin:0 auto;}
+
+/* ── HOW TO ADD GUIDE ── */
+.add-guide{background:linear-gradient(135deg,var(--teal-deep),var(--teal-dark));border-radius:20px;padding:2.5rem;margin-top:3rem;color:#fff;}
+.add-guide h3{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;margin-bottom:1.2rem;}
+.guide-steps{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;}
+.guide-step{background:rgba(255,255,255,0.08);border-radius:12px;padding:1rem;border:1px solid rgba(255,255,255,0.12);}
+.guide-step-num{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:800;color:var(--teal-mid);margin-bottom:0.4rem;}
+.guide-step p{font-size:0.8rem;opacity:0.85;line-height:1.6;}
+.guide-step code{background:rgba(255,255,255,0.15);padding:0.1rem 0.4rem;border-radius:4px;font-size:0.75rem;}
+
+/* ── FOOTER ── */
+footer{background:var(--teal-deep);border-top:1px solid rgba(255,255,255,0.08);padding:2rem 3rem;text-align:center;}
+.footer-brand{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:0.4rem;}
+.footer-brand span{color:var(--teal-mid);}
+footer p{font-size:0.82rem;color:rgba(255,255,255,0.5);}
+
+/* ── FLOAT BUTTONS ── */
+#wa-float{
+  position:fixed;bottom:2rem;right:2rem;z-index:999;
+  width:58px;height:58px;border-radius:50%;background:#25d366;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(37,211,102,0.45);
+  text-decoration:none;transition:transform 0.25s,box-shadow 0.25s;
+  animation:wa-pulse 2.5s infinite;
+}
+#wa-float:hover{transform:scale(1.1);animation:none;}
+#wa-float svg{width:30px;height:30px;fill:#fff;}
+@keyframes wa-pulse{
+  0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.45);}
+  50%{box-shadow:0 4px 32px rgba(37,211,102,0.75),0 0 0 8px rgba(37,211,102,0.12);}
+}
+
+/* ── FADE IN ── */
+.fade-in{opacity:0;transform:translateY(18px);transition:opacity 0.55s ease,transform 0.55s ease;}
+.fade-in.visible{opacity:1;transform:translateY(0);}
+
+/* ── MOBILE ── */
+@media(max-width:768px){
+  nav{padding:0.8rem 1.2rem;}
+  .nav-links,.nav-cta{display:none;}
+  .hamburger{display:flex;}
+  .page-hero{padding:6rem 1.2rem 2.5rem;}
+  .page-hero::after{display:none;}
+  .board-legend{padding:1rem 1.2rem;gap:1rem;}
+  .legend-sep{display:none;}
+  .main-wrap{padding:2rem 1.2rem 4rem;}
+  .papers-grid{grid-template-columns:1fr;}
+  footer{padding:2rem 1.2rem;}
+  #wa-float{bottom:5rem;right:1.2rem;width:52px;height:52px;}
+  #wa-float svg{width:26px;height:26px;}
+  .hero-stats{gap:1.2rem;}
+  .results-meta{flex-direction:column;align-items:flex-start;}
+  body{padding-bottom:62px;}
+  .guide-steps{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:480px){
+  .guide-steps{grid-template-columns:1fr;}
+  .filter-row{gap:0.4rem;}
+  .filter-btn{padding:0.4rem 0.85rem;font-size:0.78rem;}
+}
+</style>
+</head>
+<body data-page="papers">
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-brand">
+    <div class="nav-logo-wrap">
+      <svg viewBox="0 0 80 90" xmlns="http://www.w3.org/2000/svg">
+        <path d="M40 2 L76 18 L76 52 C76 70 60 84 40 88 C20 84 4 70 4 52 L4 18 Z" fill="#1a9e8f"/>
+        <path d="M40 8 L70 22 L70 50 C70 66 56 78 40 82 C24 78 10 66 10 50 L10 22 Z" fill="white" fill-opacity="0.15"/>
+        <line x1="40" y1="8" x2="40" y2="82" stroke="white" stroke-width="1.5" opacity="0.5"/>
+        <line x1="10" y1="45" x2="70" y2="45" stroke="white" stroke-width="1.5" opacity="0.5"/>
+        <rect x="14" y="16" width="22" height="26" rx="2" fill="none" stroke="white" stroke-width="1.5"/>
+        <path d="M16 22 Q25 18 34 22" stroke="white" stroke-width="1.2" fill="none"/>
+        <line x1="18" y1="26" x2="32" y2="26" stroke="white" stroke-width="1.2"/>
+        <line x1="18" y1="30" x2="32" y2="30" stroke="white" stroke-width="1.2"/>
+        <rect x="44" y="18" width="6" height="20" rx="1" fill="white" fill-opacity="0.9"/>
+        <rect x="51" y="16" width="7" height="22" rx="1" fill="white" fill-opacity="0.7"/>
+        <rect x="59" y="19" width="5" height="19" rx="1" fill="white" fill-opacity="0.85"/>
+        <path d="M25 52 L22 70 L28 70 Z" fill="white" fill-opacity="0.9"/>
+        <rect x="23" y="49" width="4" height="5" rx="1" fill="white" fill-opacity="0.7"/>
+        <rect x="46" y="62" width="18" height="3" rx="1" fill="white" fill-opacity="0.9"/>
+        <polygon points="55,54 44,60 55,60 66,60" fill="white" fill-opacity="0.85"/>
+        <line x1="66" y1="60" x2="66" y2="68" stroke="white" stroke-width="1.5"/>
+      </svg>
+    </div>
+    <div class="nav-name">DS Vedanta Academy<small>Est. 2019 · Sindri, Dhanbad</small></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="resource.html">Resources</a></li>
+    <li><a href="books.html">Books</a></li>
+    <li><a href="#" class="active">Papers</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <a href="index.html#contact" class="nav-cta">Enquire Now</a>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html">🏠 Home</a>
+  <a href="resource.html">📚 Resources</a>
+  <a href="books.html">📖 Books</a>
+  <a href="#" class="active">📝 Papers</a>
+  <a href="index.html#teacher" onclick="closeMobileMenu()">👨‍🏫 Teacher</a>
+  <a href="index.html#reviews" onclick="closeMobileMenu()">⭐ Reviews</a>
+  <a href="index.html#contact" onclick="closeMobileMenu()">📞 Contact</a>
+  <a href="index.html#contact" class="mob-cta" onclick="closeMobileMenu()">Enquire Now</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>›</span>
+      <a href="resource.html">Resources</a>
+      <span>›</span>
+      <span>Previous Year Papers</span>
+    </div>
+    <div class="hero-tag">Board Exam Preparation</div>
+    <h1>Previous Year<br>Papers & Samples</h1>
+    <p>Board papers and sample papers for Class 10 — CBSE, ICSE and JAC boards. Organised by board and year. Free to view and download.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-icon">📋</div>
+        <div class="hero-stat-text"><strong>3 Boards</strong>CBSE · ICSE · JAC</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-icon">📅</div>
+        <div class="hero-stat-text"><strong>2022–2024</strong>Multiple years covered</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-icon">🔬</div>
+        <div class="hero-stat-text"><strong>Subject-wise</strong>Sci · Maths · SST · English</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-icon">💸</div>
+        <div class="hero-stat-text"><strong>100% Free</strong>No signup needed</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOARD COLOUR LEGEND -->
+<div class="board-legend">
+  <div class="legend-item"><div class="legend-dot cbse"></div><span class="legend-text">CBSE — Blue</span></div>
+  <div class="legend-sep"></div>
+  <div class="legend-item"><div class="legend-dot icse"></div><span class="legend-text">ICSE — Purple</span></div>
+  <div class="legend-sep"></div>
+  <div class="legend-item"><div class="legend-dot jac"></div><span class="legend-text">JAC — Gold</span></div>
+  <div class="legend-sep"></div>
+  <div class="legend-item"><div class="legend-dot pyp"></div><span class="legend-text">Board Paper</span></div>
+  <div class="legend-sep"></div>
+  <div class="legend-item"><div class="legend-dot sample"></div><span class="legend-text">Sample Paper</span></div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main-wrap">
+
+  <!-- FILTERS -->
+  <div class="filter-section fade-in">
+
+    <!-- Class -->
+    <div class="filter-group">
+      <span class="filter-label">📋 Filter by Class</span>
+      <div class="filter-row" id="class-filters">
+        <button class="filter-btn active" data-class="all"    onclick="applyFilter(this,'class')"><span class="f-icon">🗂️</span> All Classes</button>
+        <button class="filter-btn"        data-class="class10" onclick="applyFilter(this,'class')"><span class="f-icon">🔟</span> Class 10</button>
+        <button class="filter-btn"        data-class="class9" onclick="applyFilter(this,'class')"><span class="f-icon">9️⃣</span> Class 9</button>
+      </div>
+    </div>
+
+    <hr class="filter-divider">
+
+    <!-- Board -->
+    <div class="filter-group">
+      <span class="filter-label">🏫 Filter by Board</span>
+      <div class="filter-row" id="board-filters">
+        <button class="filter-btn active" data-board="all"  onclick="applyFilter(this,'board')"><span class="f-icon">🗂️</span> All Boards</button>
+        <button class="filter-btn"        data-board="cbse" onclick="applyFilter(this,'board')"><span class="f-icon">🔵</span> CBSE</button>
+        <button class="filter-btn"        data-board="icse" onclick="applyFilter(this,'board')"><span class="f-icon">🟣</span> ICSE</button>
+        <button class="filter-btn"        data-board="jac"  onclick="applyFilter(this,'board')"><span class="f-icon">🟡</span> JAC</button>
+      </div>
+    </div>
+
+    <hr class="filter-divider">
+
+    <!-- Subject -->
+    <div class="filter-group">
+      <span class="filter-label">📖 Filter by Subject</span>
+      <div class="filter-row" id="subject-filters">
+        <button class="filter-btn active" data-subject="all"     onclick="applyFilter(this,'subject')"><span class="f-icon">📚</span> All Subjects</button>
+        <button class="filter-btn"        data-subject="science" onclick="applyFilter(this,'subject')"><span class="f-icon">🔬</span> Science</button>
+        <button class="filter-btn"        data-subject="maths"   onclick="applyFilter(this,'subject')"><span class="f-icon">📐</span> Maths</button>
+        <button class="filter-btn"        data-subject="sst"     onclick="applyFilter(this,'subject')"><span class="f-icon">🌏</span> SST</button>
+        <button class="filter-btn"        data-subject="english" onclick="applyFilter(this,'subject')"><span class="f-icon">📝</span> English</button>
+      </div>
+    </div>
+
+    <hr class="filter-divider">
+
+    <!-- Paper Type -->
+    <div class="filter-group">
+      <span class="filter-label">🏷️ Filter by Paper Type</span>
+      <div class="filter-row" id="type-filters">
+        <button class="filter-btn active" data-ptype="all"    onclick="applyFilter(this,'ptype')"><span class="f-icon">📦</span> All Types</button>
+        <button class="filter-btn"        data-ptype="pyp"    onclick="applyFilter(this,'ptype')"><span class="f-icon">📋</span> Board Paper</button>
+        <button class="filter-btn"        data-ptype="sample" onclick="applyFilter(this,'ptype')"><span class="f-icon">📄</span> Sample Paper</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RESULTS META -->
+  <div class="results-meta fade-in">
+    <div class="results-count">Showing <strong id="result-count">0</strong> papers</div>
+    <div class="sort-note">📌 Papers added regularly — bookmark this page!</div>
+  </div>
+
+  <!-- NO RESULTS -->
+  <div class="no-results" id="no-results">
+    <span class="nr-icon">📂</span>
+    <h3>No papers found!</h3>
+    <p>Try a different filter, or contact us on WhatsApp for a specific paper.</p>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════
+       HOW TO ADD A NEW PAPER (READ THIS BEFORE ADDING)
+       ════════════════════════════════════════════════════
+
+  STEP 1 — Upload PDF to Google Drive
+           Right-click → Share → "Anyone with the link" → Copy link
+
+  STEP 2 — Get the FILE_ID
+           From: https://drive.google.com/file/d/FILE_ID/view
+           Copy the long string between /d/ and /view
+
+  STEP 3 — Copy the paper card template below and paste it
+           inside the correct <div class="papers-grid"> block
+
+  STEP 4 — Fill in these 6 things:
+    a) data-class   → class10  or  class9
+    b) data-board   → cbse  /  icse  /  jac
+    c) data-subject → science  /  maths  /  sst  /  english
+    d) data-ptype   → pyp  (board paper)  or  sample
+    e) data-year    → 2024  /  2023  /  2022
+    f) Replace FILE_ID in both href links
+
+  STEP 5 — Remove "coming-soon" from class list if paper is ready
+           Change icon box class from "soon" to "cbse"/"icse"/"jac"
+
+  ════════════════════════════════════════════════════
+  TEMPLATE (copy this for any new paper):
+
+  <div class="paper-card cbse fade-in"
+       data-class="class10"
+       data-board="cbse"
+       data-subject="science"
+       data-ptype="pyp"
+       data-year="2024">
+    <div class="card-top">
+      <div class="paper-icon-box cbse">📋</div>
+      <div class="card-info">
+        <div class="card-title">Science — Board Paper 2024</div>
+        <div class="card-sub">Class 10 · CBSE · Previous Year · Set 1</div>
+      </div>
+    </div>
+    <div class="card-tags">
+      <span class="ctag board-cbse">CBSE</span>
+      <span class="ctag type-pyp">Board Paper</span>
+      <span class="ctag year">2024</span>
+      <span class="ctag subj">Science</span>
+    </div>
+    <div class="card-actions">
+      <a href="https://drive.google.com/file/d/FILE_ID/view" class="btn-view" target="_blank">👁️ View</a>
+      <a href="https://drive.google.com/uc?export=download&id=FILE_ID" class="btn-dl" target="_blank">⬇️ Download</a>
+    </div>
+  </div>
+
+  ════════════════════════════════════════════════════ -->
+
+
+  <!-- ══════════════════════════════════════
+       CLASS 10
+  ══════════════════════════════════════ -->
+  <div class="class-section fade-in" id="section-class10">
+    <div class="class-header">
+      <div class="class-badge">Class 10</div>
+      <h2>Class 10 Papers</h2>
+      <div class="class-count" id="count-class10">0 papers</div>
+    </div>
+
+    <!-- ── CBSE ── -->
+    <div class="board-group" id="grp-class10-cbse">
+      <div class="board-header">
+        <div class="board-pill cbse">CBSE</div>
+        <div class="board-full-name">Central Board of Secondary Education</div>
+        <div class="board-divider"></div>
+      </div>
+      <div class="papers-grid">
+
+        <!-- REAL PAPER — Science 2024 CBSE (add your FILE_ID) -->
+        <div class="paper-card cbse fade-in"
+             data-class="class10" data-board="cbse"
+             data-subject="science" data-ptype="pyp" data-year="2024">
+          <div class="card-top">
+            <div class="paper-icon-box cbse">📋</div>
+            <div class="card-info">
+              <div class="card-title">Science — Board Paper 2024</div>
+              <div class="card-sub">Class 10 · CBSE · Set 1 · 80 Marks</div>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="ctag board-cbse">CBSE</span>
+            <span class="ctag type-pyp">Board Paper</span>
+            <span class="ctag year">2024</span>
+            <span class="ctag subj">Science</span>
+          </div>
+          <div class="card-actions">
+            <a href="https://drive.google.com/file/d/FILE_ID/view" class="btn-view" target="_blank">👁️ View</a>
+            <a href="https://drive.google.com/uc?export=download&id=FILE_ID" class="btn-dl" target="_blank">⬇️ Download</a>
+          </div>
+        </div>
+
+        <!-- Science 2023 CBSE -->
+        <div class="paper-card cbse coming-soon fade-in"
+             data-class="class10" data-board="cbse"
+             data-subject="science" data-ptype="pyp" data-year="2023">
+          <div class="card-top">
+            <div class="paper-icon-box soon">📋</div>
+            <div class="card-info">
+              <div class="card-title">Science — Board Paper 2023</div>
+              <div class="card-sub">Class 10 · CBSE · Set 1 · 80 Marks</div>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="ctag board-cbse">CBSE</span>
+            <span class="ctag type-pyp">Board Paper</span>
+            <span class="ctag year">2023</span>
+            <span class="ctag subj">Science</span>
+          </div>
+          <div class="card-actions"><button class="btn-soon" disabled>🕐 Coming Soon</button></div>
+        </div>
+
+        <!-- Science 2022 CBSE -->
+        <div class="paper-card cbse coming-soon fade-in"
+             data-class="class10" data-board="cbse"
+             data-subject="science" data-ptype="pyp" data-year="2022">
+          <div class="card-top">
+            <div class="paper-icon-box soon">📋</div>
+            <div class="card-info">
+              <div class="card-title">Science — Board Paper 2022</div>
+              <div class="card-sub">Class 10 · CBSE · Set 1 · 80 Marks</div>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="ctag board-cbse">CBSE</span>
+            <span class="ctag type-pyp">Board Paper</span>
+            <span class="ctag year">2022</span>
+            <span class="ctag subj">Science</span>
+          </div>
+          <div class="card-actions"><button class="btn-soon" disabled>🕐 Coming Soon</button></div>
+        </div>
+
+        <!-- Maths 2024 CBSE -->
+        <div class="paper-card cbse coming-soon fade-in"
+             data-class="class10" data-board="cbse"
+             data-subject="maths" data-ptype="pyp" data-year="2024">
+          <div class="card-top">
+            <div class="paper-icon-box soon">📐</div>
+            <div class="card-info">
+              <div class="card-title">Mathematics — Board Paper 2024</div>
+              <div class="card-sub">Class 10 · CBSE · Standard · 80 Marks</div>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="ctag board-cbse">CBSE</span>
+            <span class="ctag type-pyp">Board Paper</span>
+            <span class="ctag year">2024</span>
+            <span class="ctag subj">Maths</span>
+          </div>
+          <div class="card-actions"><button class="btn-soon" disabled>🕐 Coming Soon</button></div>
+        </div>
+
+        <!-- Maths 2023 CBSE -->
+        <div class="paper-card cbse coming-soon fade-in"
+             data-class="class10" data-board="cbse"
+             data-subject="maths" data-ptype="pyp" data-year="2023">
+          <div class="card-top">
+            <div class="paper-icon-box soon">📐</div>
+            <div class="card-info">
+              <div class="card-title">Mathematics — Board Paper 2023</div>
+              <div class="card-sub">Class 10 · CBSE · Standard · 80 Marks</div>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="ctag board-cbse">CBSE</span>
+            <span class="ctag type-pyp">Board Paper</span>
+            <span class="ctag year">2023</span>
+            <span class="ctag subj">Maths</span>
+          </div>
+          <div class="card-actions"><button class="btn-soon" disabled>🕐 Coming Soon</button></div>
+        </div>
+
+        <!-- SST 2024 CBSE -->
+        <div class="paper-card cbse coming-soon fade-in"
+             data-class="class10" data-board="cbse"
+             data-subject="sst" data-ptype="pyp" data-year="2024">
+          <div class="card-top">
+            <div class="paper-icon-box soon">🌏</div>
+            <div class="card-info">
+              <div class="card-title">Social Science — Board Paper 2024</div>
+              <div class="card-sub">Class 10 · CBSE · 80 Marks</div>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="ctag board-cbse">CBSE</span>
+            <span class="ctag type-pyp">Board Paper</span>
+            <span class="ctag year">2024</span>
+            <span class="ctag subj">SST</span>
+          </div>
+          <div class="card-actions"><button class="btn-soon" disabled>🕐 Coming Soon</button></div>
+        </div>
+
+        <!-- English 2024 CBSE -->
+        <div class="paper-card cbse coming-soon fade-in"
+             data-class="class10" data-board="cbse"
+             data-subject="english" data-ptype="pyp" data-year="2024">
+          <div class="card-top">
+            <div class="paper-icon-box soon">📝</div>
+            <div class="card-info">
+              <div class="card-title">English — Board Paper 2024</div>
+              <div class="card-sub">Class 10 · CBSE · Language & Literature · 80 Marks</div>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="ctag board-cbse">CBSE</span>
+            <span class="ctag type-pyp">Board Paper</span>
+            <span class="ctag year">2024</span>
+            <span class="ctag subj">English</span>
+          </div>
+          <div class="card-actions"><button class="btn-soon" disabled>🕐 Coming Soon</button></div>
+        </div>
+
+        <!-- Sample Paper Science CBSE 2024-25 -->
+        <div class="paper-card cbse coming-soon fade-in"
+             data-class="class10" data-board="cbse"
+             data-subject="science" data-ptype="sample" data-year="2024">
+          <div class="card-top">
+            <div class="paper-icon-box soon">🔬</div>
+            <div class="card-info">
+              <div class="card-title">Science — CBSE Sample Paper 2024–25</div>
+              <div class="card-sub">Class 10 · CBSE · Official Sample · 80 Marks</div>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="ctag board-cbse">CBSE</span>
+            <span class="ctag type-sample">Sample Paper</span>
+            <span class="ctag year">2024</span>
+            <span class="ctag subj">Science</span>
+          </div>
+          <div class="card-actions"><button class="btn-soon" disabled>🕐 Coming Soon</button></div>
+        </div>
+
+        <!-- Sample Paper Maths CBSE 2024-25 -->
+        <div class="paper-card cbse coming-soon fade-in"
+             data-class="class10" data-board="cbse"
+             data-subject="maths" data-ptype="sample" data-year="2024">
+          <div class="card-top">
+            <div class="paper-icon-box soon">📐</div>
+            <div class="card-info">
+              <div class="card-title">Maths — CBSE Sample Paper 2024–25</div>
+              <div class="card-sub">Class 10 · CBSE · Standard · 80 Marks</div>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="ctag board-cbse">CBSE</span>
+            <span class="ctag type-sample">Sample Paper</span>
+            <span class="ctag year">2024</span>
+            <span class="ctag subj">Maths</span>
+          </div>
+          <div class="card-actions"><button class="btn-soon" disabled>🕐 Coming Soon</button></div>
+        </div>
+
+      </div><!-- end cbse papers-grid -->
+    </div><!-- end grp-class10-cbse -->
+
+
+    <!-- ── ICSE ── -->
+    <div class="board-group" id="grp-class10-icse">
+      <div class="board-header">
+        <div class="board-pill icse">ICSE</div>
+        <div class="board-full-name">Indian Certificate of Secondary Education</div>
+        <div class="board-divider"></div>
+      </div>
+      <div class="papers-grid">
+
+        <!-- ICSE Science 2024 -->
+        <div class="paper-card icse coming-soon fade-in"
+             data-class="class10" data-board="icse"
+             data-subject="science" data-ptype="pyp" data-year="2024">
+          <div class="card-top">
+            <div class="paper-icon-box soon">🔬</div>
+            <div class="card-info">
+              <div class="card-title">Physics — Board Paper 2024</div>
+              <div class="card-sub">Class 10 · ICSE · Paper 1 · 80 Marks</div>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="ctag board-icse">ICSE</span>
+            <span class="ctag type-pyp">Board Paper</span>
+            <span class="ctag year">2024</span>
+            <span class="ctag subj">Physics</span>
+          </div>
+          <div class="card-actions"><button class="btn-soon" disabled>🕐 Coming Soon</button></div>
+        </div>
+
+        <!-- ICSE Chemistry 2024 -->
+        <div class="paper-card icse coming-soon fade-in"
+             data-class="class10" data-board="icse"
+             data-subject="science" data-ptype="pyp" data-year="2024">
+          <div class="card-top">
+            <div class="paper-icon-box soon">⚗️</div>
+            <div class="card-info">
+              <div class="card-title">Chemistry — Board Paper 2024</div>
+              <div class="card-sub">Class 10 · ICSE · Paper 2 · 80 Marks</div>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="ctag board-icse">ICSE</span>
+            <span class="ctag type-pyp">Board Paper</span>
+            <span class="ctag year">2024</span>
+            <span class="ctag subj">Chemistry</span>
+          </div>
+          <div class="card-actions"><button class="btn-soon" disabled>🕐 Coming Soon</button></div>
+        </div>
+
+        <!-- ICSE Maths 2024 -->
+        <div class="paper-card icse coming-soon fade-in"
+             data-class="class10" data-board="icse"
+             data-subject="maths" data-ptype="pyp" data-year="2024">
+          <div class="card-top">
+            <div class="paper-icon-box soon">📐</div>
+            <div class="card-info">
+              <div class="card-title">Mathematics — Board Paper 2024</div>
+              <div class="card-sub">Class 10 · ICSE · 80 Marks</div>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="ctag board-icse">ICSE</span>
+            <span class="ctag type-pyp">Board Paper</span>
+            <span class="ctag year">2024</span>
+            <span class="ctag subj">Maths</span>
+          </div>
+          <div class="card-actions"><button class="btn-soon" disabled>🕐 Coming Soon</button></div>
+        </div>
+
+        <!-- ICSE English 2024 -->
+        <div class="paper-card icse coming-soon fade-in"
+             data-class="class10" data-board="icse"
+             data-subject="english" data-ptype="pyp" data-year="2024">
+          <div class="card-top">
+            <div class="paper-icon-box soon">📝</div>
+            <div class="card-info">
+              <div class="card-title">English Language — Board Paper 2024</div>
+              <div class="card-sub">Class 10 · ICSE · Paper 1 · 80 Marks</div>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="ctag board-icse">ICSE</span>
+            <span class="ctag type-pyp">Board Paper</span>
+            <span class="ctag year">2024</span>
+            <span class="ctag subj">English</span>
+          </div>
+          <div class="card-actions"><button class="btn-soon" disabled>🕐 Coming Soon</button></div>
+        </div>
+
+        <!-- ICSE Science 2023 -->
+        <div class="paper-card icse coming-soon fade-in"
+             data-class="class10" data-board="icse"
+             data-subject="science" data-ptype="pyp" data-year="2023">
+          <div class="card-top">
+            <div class="paper-icon-box soon">🔬</div>
+            <div class="card-info">
+              <div class="card-title">Physics — Board Paper 2023</div>
+              <div class="card-sub">Class 10 · ICSE · Paper 1 · 80 Marks</div>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="ctag board-icse">ICSE</span>
+            <span class="ctag type-pyp">Board Paper</span>
+            <span class="ctag year">2023</span>
+            <span class="ctag subj">Physics</span>
+          </div>
+          <div class="card-actions"><button class="btn-soon" disabled>🕐 Coming Soon</button></div>
+        </div>
+
+      </div><!-- end icse papers-grid -->
+    </div><!-- end grp-class10-icse -->
+
+
+    <!-- ── JAC ── -->
+    <div class="board-group" id="grp-class10-jac">
+      <div class="board-header">
+        <div class="board-pill jac">JAC</div>
+        <div class="board-full-name">Jharkhand Academic Council</div>
+        <div class="board-divider"></div>
+      </div>
+      <div class="papers-grid">
+
+        <!-- JAC Science 2024 -->
+        <div class="paper-card jac coming-soon fade-in"
+             data-class="class10" data-board="jac"
+             data-subject="science" data-ptype="pyp" data-year="2024">
+          <div class="card-top">
+            <div class="paper-icon-box soon">🔬</div>
+            <div class="card-info">
+              <div class="card-title">Science — Board Paper 2024</div>
+              <div class="card-sub">Class 10 · JAC · Matric · 80 Marks</div>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="ctag board-jac">JAC</span>
+            <span class="ctag type-pyp">Board Paper</span>
+            <span class="ctag year">2024</span>
+            <span class="ctag subj">Science</span>
+          </div>
+          <div class="card-actions"><button class="btn-soon" disabled>🕐 Coming Soon</button></div>
+        </div>
+
+        <!-- JAC Maths 2024 -->
+        <div class="paper-card jac coming-soon fade-in"
+             data-class="class10" data-board="jac"
+             data-subject="maths" data-ptype="pyp" data-year="2024">
+          <div class="card-top">
+            <div class="paper-icon-box soon">📐</div>
+            <div class="card-info">
+              <div class="card-title">Mathematics — Board Paper 2024</div>
+              <div class="card-sub">Class 10 · JAC · Matric · 80 Marks</div>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="ctag board-jac">JAC</span>
+            <span class="ctag type-pyp">Board Paper</span>
+            <span class="ctag year">2024</span>
+            <span class="ctag subj">Maths</span>
+          </div>
+          <div class="card-actions"><button class="btn-soon" disabled>🕐 Coming Soon</button></div>
+        </div>
+
+        <!-- JAC SST 2024 -->
+        <div class="paper-card jac coming-soon fade-in"
+             data-class="class10" data-board="jac"
+             data-subject="sst" data-ptype="pyp" data-year="2024">
+          <div class="card-top">
+            <div class="paper-icon-box soon">🌏</div>
+            <div class="card-info">
+              <div class="card-title">Social Science — Board Paper 2024</div>
+              <div class="card-sub">Class 10 · JAC · Matric · 80 Marks</div>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="ctag board-jac">JAC</span>
+            <span class="ctag type-pyp">Board Paper</span>
+            <span class="ctag year">2024</span>
+            <span class="ctag subj">SST</span>
+          </div>
+          <div class="card-actions"><button class="btn-soon" disabled>🕐 Coming Soon</button></div>
+        </div>
+
+        <!-- JAC English 2024 -->
+        <div class="paper-card jac coming-soon fade-in"
+             data-class="class10" data-board="jac"
+             data-subject="english" data-ptype="pyp" data-year="2024">
+          <div class="card-top">
+            <div class="paper-icon-box soon">📝</div>
+            <div class="card-info">
+              <div class="card-title">English — Board Paper 2024</div>
+              <div class="card-sub">Class 10 · JAC · Matric · 80 Marks</div>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="ctag board-jac">JAC</span>
+            <span class="ctag type-pyp">Board Paper</span>
+            <span class="ctag year">2024</span>
+            <span class="ctag subj">English</span>
+          </div>
+          <div class="card-actions"><button class="btn-soon" disabled>🕐 Coming Soon</button></div>
+        </div>
+
+        <!-- JAC Science 2023 -->
+        <div class="paper-card jac coming-soon fade-in"
+             data-class="class10" data-board="jac"
+             data-subject="science" data-ptype="pyp" data-year="2023">
+          <div class="card-top">
+            <div class="paper-icon-box soon">🔬</div>
+            <div class="card-info">
+              <div class="card-title">Science — Board Paper 2023</div>
+              <div class="card-sub">Class 10 · JAC · Matric · 80 Marks</div>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="ctag board-jac">JAC</span>
+            <span class="ctag type-pyp">Board Paper</span>
+            <span class="ctag year">2023</span>
+            <span class="ctag subj">Science</span>
+          </div>
+          <div class="card-actions"><button class="btn-soon" disabled>🕐 Coming Soon</button></div>
+        </div>
+
+        <!-- JAC Maths 2023 -->
+        <div class="paper-card jac coming-soon fade-in"
+             data-class="class10" data-board="jac"
+             data-subject="maths" data-ptype="pyp" data-year="2023">
+          <div class="card-top">
+            <div class="paper-icon-box soon">📐</div>
+            <div class="card-info">
+              <div class="card-title">Mathematics — Board Paper 2023</div>
+              <div class="card-sub">Class 10 · JAC · Matric · 80 Marks</div>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="ctag board-jac">JAC</span>
+            <span class="ctag type-pyp">Board Paper</span>
+            <span class="ctag year">2023</span>
+            <span class="ctag subj">Maths</span>
+          </div>
+          <div class="card-actions"><button class="btn-soon" disabled>🕐 Coming Soon</button></div>
+        </div>
+
+        <!-- JAC Science 2022 -->
+        <div class="paper-card jac coming-soon fade-in"
+             data-class="class10" data-board="jac"
+             data-subject="science" data-ptype="pyp" data-year="2022">
+          <div class="card-top">
+            <div class="paper-icon-box soon">🔬</div>
+            <div class="card-info">
+              <div class="card-title">Science — Board Paper 2022</div>
+              <div class="card-sub">Class 10 · JAC · Matric · 80 Marks</div>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="ctag board-jac">JAC</span>
+            <span class="ctag type-pyp">Board Paper</span>
+            <span class="ctag year">2022</span>
+            <span class="ctag subj">Science</span>
+          </div>
+          <div class="card-actions"><button class="btn-soon" disabled>🕐 Coming Soon</button></div>
+        </div>
+
+        <!-- JAC Sample Science -->
+        <div class="paper-card jac coming-soon fade-in"
+             data-class="class10" data-board="jac"
+             data-subject="science" data-ptype="sample" data-year="2024">
+          <div class="card-top">
+            <div class="paper-icon-box soon">🔬</div>
+            <div class="card-info">
+              <div class="card-title">Science — JAC Sample Paper 2024–25</div>
+              <div class="card-sub">Class 10 · JAC · Practice · 80 Marks</div>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="ctag board-jac">JAC</span>
+            <span class="ctag type-sample">Sample Paper</span>
+            <span class="ctag year">2024</span>
+            <span class="ctag subj">Science</span>
+          </div>
+          <div class="card-actions"><button class="btn-soon" disabled>🕐 Coming Soon</button></div>
+        </div>
+
+      </div><!-- end jac papers-grid -->
+    </div><!-- end grp-class10-jac -->
+
+  </div><!-- end class10 section -->
+
+
+  <!-- ══════════════════════════════════════
+       CLASS 9
+  ══════════════════════════════════════ -->
+  <div class="class-section fade-in" id="section-class9">
+    <div class="class-header">
+      <div class="class-badge">Class 9</div>
+      <h2>Class 9 Papers</h2>
+      <div class="class-count" id="count-class9">0 papers</div>
+    </div>
+
+    <!-- CBSE Class 9 -->
+    <div class="board-group" id="grp-class9-cbse">
+      <div class="board-header">
+        <div class="board-pill cbse">CBSE</div>
+        <div class="board-full-name">Central Board of Secondary Education</div>
+        <div class="board-divider"></div>
+      </div>
+      <div class="papers-grid">
+
+        <div class="paper-card cbse coming-soon fade-in"
+             data-class="class9" data-board="cbse"
+             data-subject="science" data-ptype="sample" data-year="2024">
+          <div class="card-top">
+            <div class="paper-icon-box soon">🔬</div>
+            <div class="card-info">
+              <div class="card-title">Science — Annual Sample Paper 2024</div>
+              <div class="card-sub">Class 9 · CBSE · 80 Marks</div>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="ctag board-cbse">CBSE</span>
+            <span class="ctag type-sample">Sample Paper</span>
+            <span class="ctag year">2024</span>
+            <span class="ctag subj">Science</span>
+          </div>
+          <div class="card-actions"><button class="btn-soon" disabled>🕐 Coming Soon</button></div>
+        </div>
+
+        <div class="paper-card cbse coming-soon fade-in"
+             data-class="class9" data-board="cbse"
+             data-subject="maths" data-ptype="sample" data-year="2024">
+          <div class="card-top">
+            <div class="paper-icon-box soon">📐</div>
+            <div class="card-info">
+              <div class="card-title">Mathematics — Annual Sample Paper 2024</div>
+              <div class="card-sub">Class 9 · CBSE · 80 Marks</div>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="ctag board-cbse">CBSE</span>
+            <span class="ctag type-sample">Sample Paper</span>
+            <span class="ctag year">2024</span>
+            <span class="ctag subj">Maths</span>
+          </div>
+          <div class="card-actions"><button class="btn-soon" disabled>🕐 Coming Soon</button></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- JAC Class 9 -->
+    <div class="board-group" id="grp-class9-jac">
+      <div class="board-header">
+        <div class="board-pill jac">JAC</div>
+        <div class="board-full-name">Jharkhand Academic Council</div>
+        <div class="board-divider"></div>
+      </div>
+      <div class="papers-grid">
+
+        <div class="paper-card jac coming-soon fade-in"
+             data-class="class9" data-board="jac"
+             data-subject="science" data-ptype="sample" data-year="2024">
+          <div class="card-top">
+            <div class="paper-icon-box soon">🔬</div>
+            <div class="card-info">
+              <div class="card-title">Science — Annual Sample Paper 2024</div>
+              <div class="card-sub">Class 9 · JAC · 80 Marks</div>
+            </div>
+          </div>
+          <div class="card-tags">
+            <span class="ctag board-jac">JAC</span>
+            <span class="ctag type-sample">Sample Paper</span>
+            <span class="ctag year">2024</span>
+            <span class="ctag subj">Science</span>
+          </div>
+          <div class="card-actions"><button class="btn-soon" disabled>🕐 Coming Soon</button></div>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- end class9 section -->
+
+
+  
+</div><!-- end main-wrap -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">DS <span>Vedanta Academy</span></div>
+  <p style="margin-top:0.4rem;">Strong Foundation, Bright Future</p>
+  <p style="margin-top:0.3rem;">House No. 02, Domgarh, Near Shiv Mandir, Sindri, Dhanbad 828107</p>
+  <p style="margin-top:0.3rem;">+91 94705 68366 · Class 7–10 · CBSE · ICSE · JAC</p>
+  <p style="margin-top:0.8rem;">© 2019–2026 DS Vedanta Academy. All papers free to access.</p>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a id="wa-float" href="https://wa.me/919470568366?text=Hello%20DS%20Vedanta%20Academy!%20I%20need%20a%20specific%20board%20paper." target="_blank" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+/* ── STATE ── */
+var activeClass   = 'all';
+var activeBoard   = 'all';
+var activeSubject = 'all';
+var activePtype   = 'all';
+
+/* ── FILTER LOGIC ── */
+function applyFilter(btn, type) {
+  var filterMap = {
+    'class':   '#class-filters',
+    'board':   '#board-filters',
+    'subject': '#subject-filters',
+    'ptype':   '#type-filters'
+  };
+  document.querySelectorAll(filterMap[type] + ' .filter-btn').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+
+  if      (type === 'class')   activeClass   = btn.dataset.class;
+  else if (type === 'board')   activeBoard   = btn.dataset.board;
+  else if (type === 'subject') activeSubject = btn.dataset.subject;
+  else if (type === 'ptype')   activePtype   = btn.dataset.ptype;
+
+  renderFilter();
+}
+
+function renderFilter() {
+  var cards = document.querySelectorAll('.paper-card');
+  var visibleCount = 0;
+
+  cards.forEach(function(card) {
+    var mc = (activeClass   === 'all') || (card.dataset.class   === activeClass);
+    var mb = (activeBoard   === 'all') || (card.dataset.board   === activeBoard);
+    var ms = (activeSubject === 'all') || (card.dataset.subject === activeSubject);
+    var mt = (activePtype   === 'all') || (card.dataset.ptype   === activePtype);
+
+    if (mc && mb && ms && mt) {
+      card.style.display = '';
+      visibleCount++;
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  /* show/hide class sections and board groups */
+  ['class10','class9'].forEach(function(cls) {
+    var section = document.getElementById('section-' + cls);
+    if (!section) return;
+
+    ['cbse','icse','jac'].forEach(function(brd) {
+      var grp = document.getElementById('grp-' + cls + '-' + brd);
+      if (!grp) return;
+      var grpVisible = grp.querySelectorAll('.paper-card:not([style*="display: none"]):not([style*="display:none"])').length > 0;
+      grp.style.display = grpVisible ? '' : 'none';
+    });
+
+    var shouldShow = (activeClass === 'all' || activeClass === cls);
+    var hasVisible = section.querySelectorAll('.paper-card:not([style*="display: none"]):not([style*="display:none"])').length > 0;
+    section.style.display = (shouldShow && hasVisible) ? '' : 'none';
+
+    var countEl = document.getElementById('count-' + cls);
+    if (countEl) {
+      var n = section.querySelectorAll('.paper-card:not([style*="display: none"]):not([style*="display:none"])').length;
+      countEl.textContent = n + ' paper' + (n !== 1 ? 's' : '');
+    }
+  });
+
+  document.getElementById('result-count').textContent = visibleCount;
+  document.getElementById('no-results').style.display = visibleCount === 0 ? 'block' : 'none';
+}
+
+/* ── HAMBURGER ── */
+var hamburger  = document.getElementById('hamburger');
+var mobileMenu = document.getElementById('mobile-menu');
+hamburger.addEventListener('click', function() {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+function closeMobileMenu() {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+}
+
+/* ── SCROLL FADE IN ── */
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade-in').forEach(function(el){ observer.observe(el); });
+
+/* ── INIT ── */
+window.addEventListener('DOMContentLoaded', function() {
+  renderFilter();
+});
+</script>
+
+<script src="pixie.js"></script>
+<script src="sidebar.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js');
+  }
+</script>
+</body>
+</html>

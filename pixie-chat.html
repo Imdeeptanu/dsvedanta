@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0a4a42">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="description" content="Pixie — Your AI Study Buddy at DS Vedanta Academy. Ask questions, upload photos of problems, get instant help for Class 7-10 and beyond.">
+<title>Pixie — AI Study Buddy | DS Vedanta Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --teal:#1a9e8f;
+  --teal-dark:#0f6e63;
+  --teal-deep:#0a4a42;
+  --teal-light:#e6f7f5;
+  --teal-mid:#2dbdac;
+  --gold:#c9a84c;
+  --gold-light:#f5e9c8;
+  --bg:#ffffff;
+  --bg2:#f4faf9;
+  --bg3:#e9f5f3;
+  --text:#1a2e2c;
+  --muted:#5a7a77;
+  --border:#c8e6e2;
+  --white:#ffffff;
+
+  --chat-bg:#f0faf9;
+  --bubble-ai:#ffffff;
+  --bubble-user-start:#1a9e8f;
+  --bubble-user-end:#2dbdac;
+  --input-bg:#ffffff;
+  --header-h:64px;
+  --input-area-h:72px;
+}
+
+html{scroll-behavior:smooth;height:100%;}
+body{
+  background:var(--teal-deep);
+  color:var(--text);
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:16px;
+  line-height:1.7;
+  overflow:hidden;
+  height:100%;
+}
+
+#pixie-page {
+  display: flex;
+  flex-direction: column;
+  /* Use fixed positioning to bypass all PWA viewport bugs */
+  position: fixed;
+  top: 0;
+  left: 64px; /* Leaves room for the desktop sidebar */
+  right: 0;
+  bottom: 0;
+  background: var(--chat-bg);
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* TOP HEADER BAR */
+#pixie-topbar{
+  height:var(--header-h);
+  background:var(--teal-deep);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 1.5rem;
+  flex-shrink:0;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  position:relative;
+  z-index:10;
+  /* Also pad top for status bar in PWA */
+  padding-top: env(safe-area-inset-top);
+  height: calc(var(--header-h) + env(safe-area-inset-top));
+}
+
+.topbar-left{display:flex;align-items:center;gap:0.85rem;min-width:0;overflow:hidden;}
+
+.pixie-avatar-wrap{position:relative;flex-shrink:0;}
+
+.pixie-avatar{
+  width:42px;height:42px;border-radius:50%;
+  background:linear-gradient(135deg,var(--teal),var(--teal-mid));
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;border:2px solid rgba(255,255,255,0.2);flex-shrink:0;
+}
+
+.pixie-online-dot{
+  position:absolute;bottom:1px;right:1px;
+  width:10px;height:10px;border-radius:50%;
+  background:#4ade80;border:2px solid var(--teal-deep);
+  animation:blink 2s infinite;
+}
+
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.4;}}
+
+.topbar-info{overflow:hidden;}
+.topbar-info h2{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#fff;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.topbar-info span{font-size:0.72rem;color:rgba(255,255,255,0.6);font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;}
+
+.topbar-right{display:flex;align-items:center;gap:0.5rem;flex-shrink:0;}
+
+.topbar-btn{
+  background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);
+  color:rgba(255,255,255,0.8);padding:0.4rem 0.85rem;border-radius:50px;
+  font-size:0.75rem;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;
+  transition:all 0.2s;display:flex;align-items:center;gap:0.35rem;white-space:nowrap;
+}
+.topbar-btn:hover{background:rgba(255,255,255,0.18);color:#fff;}
+.topbar-btn.hidden{display:none;}
+
+#student-name-badge{
+  font-size:0.78rem;color:rgba(255,255,255,0.7);font-weight:500;
+  padding:0.35rem 0.75rem;background:rgba(255,255,255,0.06);border-radius:50px;
+  border:1px solid rgba(255,255,255,0.1);display:none;
+}
+
+/* WELCOME OVERLAY */
+#welcome-overlay{
+  position:fixed;inset:0;z-index:200;
+  background:linear-gradient(135deg,var(--teal-deep) 0%,#0d5c52 50%,#0a4a42 100%);
+  display:flex;align-items:center;justify-content:center;flex-direction:column;
+  padding:2rem;transition:opacity 0.5s ease, transform 0.5s ease;
+}
+#welcome-overlay.hiding{opacity:0;transform:scale(0.96);pointer-events:none;}
+
+.welcome-inner{max-width:420px;width:100%;text-align:center;}
+
+.welcome-avatar{
+  width:80px;height:80px;border-radius:50%;
+  background:linear-gradient(135deg,rgba(255,255,255,0.15),rgba(255,255,255,0.05));
+  border:2px solid rgba(255,255,255,0.2);
+  display:flex;align-items:center;justify-content:center;font-size:2.5rem;
+  margin:0 auto 1.5rem;animation:float 3s ease-in-out infinite;
+}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+
+.welcome-inner h1{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.4rem);font-weight:800;color:#fff;margin-bottom:0.5rem;letter-spacing:-0.5px;}
+.welcome-inner p{color:rgba(255,255,255,0.7);font-size:0.92rem;margin-bottom:2rem;line-height:1.7;}
+
+.welcome-input-wrap{background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.15);border-radius:16px;padding:1.5rem;margin-bottom:1rem;}
+.welcome-input-wrap label{display:block;font-size:0.8rem;font-weight:600;color:rgba(255,255,255,0.6);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:0.75rem;}
+
+#name-input{
+  width:100%;background:rgba(255,255,255,0.08);border:1.5px solid rgba(255,255,255,0.2);
+  border-radius:12px;padding:0.85rem 1.2rem;font-size:1rem;font-family:'Plus Jakarta Sans',sans-serif;
+  font-weight:500;color:#fff;outline:none;transition:border-color 0.2s, background 0.2s;margin-bottom:1rem;
+}
+#name-input::placeholder{color:rgba(255,255,255,0.35);}
+#name-input:focus{border-color:var(--teal-mid);background:rgba(255,255,255,0.12);}
+
+#name-submit{
+  width:100%;background:linear-gradient(135deg,var(--teal),var(--teal-mid));border:none;
+  color:#fff;padding:0.9rem;border-radius:12px;font-size:0.95rem;font-weight:700;
+  font-family:'Plus Jakarta Sans',sans-serif;cursor:pointer;transition:all 0.2s;letter-spacing:0.3px;
+}
+#name-submit:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(26,158,143,0.4);}
+
+.welcome-skip{color:rgba(255,255,255,0.4);font-size:0.78rem;cursor:pointer;transition:color 0.2s;background:none;border:none;font-family:'Plus Jakarta Sans',sans-serif;margin-top:0.75rem;}
+.welcome-skip:hover{color:rgba(255,255,255,0.7);}
+
+.welcome-badges{display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem;}
+.welcome-badge{font-size:0.7rem;font-weight:600;padding:0.3rem 0.8rem;border-radius:50px;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.12);letter-spacing:0.5px;}
+
+/* MESSAGES AREA */
+#messages-area{
+  flex:1;overflow-y:auto;padding:1.5rem 1rem;
+  display:flex;flex-direction:column;gap:1rem;
+  scroll-behavior:smooth;position:relative;
+}
+#messages-area::-webkit-scrollbar{width:4px;}
+#messages-area::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px;}
+
+/* QUICK START */
+#quickstart{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;padding:2rem 1rem;gap:1rem;}
+#quickstart h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--teal-deep);margin-bottom:0.25rem;text-align:center;}
+#quickstart p{font-size:0.82rem;color:var(--muted);text-align:center;margin-bottom:0.5rem;}
+
+.qs-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.7rem;width:100%;max-width:480px;}
+
+.qs-btn{
+  background:#fff;border:1.5px solid var(--border);border-radius:14px;
+  padding:1rem 0.85rem;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;
+  transition:all 0.2s;text-align:left;display:flex;flex-direction:column;gap:0.35rem;
+}
+.qs-btn:hover{border-color:var(--teal);background:var(--teal-light);transform:translateY(-2px);box-shadow:0 4px 16px rgba(26,158,143,0.12);}
+.qs-icon{font-size:1.4rem;line-height:1;}
+.qs-title{font-size:0.82rem;font-weight:700;color:var(--teal-deep);line-height:1.2;}
+.qs-sub{font-size:0.7rem;color:var(--muted);line-height:1.3;}
+
+/* MESSAGE BUBBLES */
+.msg-row{display:flex;gap:0.65rem;align-items:flex-end;animation:msgSlide 0.25s ease;}
+@keyframes msgSlide{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+.msg-row.user{flex-direction:row-reverse;}
+
+.msg-avatar{
+  width:32px;height:32px;border-radius:50%;
+  background:linear-gradient(135deg,var(--teal),var(--teal-mid));
+  display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0;align-self:flex-end;
+}
+.msg-avatar.user-av{background:linear-gradient(135deg,var(--gold),#e6c060);font-size:0.75rem;font-weight:700;color:#3a2800;font-family:'Playfair Display',serif;}
+
+.msg-bubble{max-width:72%;min-width:120px;padding:0.75rem 1rem;border-radius:18px;font-size:0.88rem;line-height:1.65;position:relative;word-break:break-word;}
+.msg-bubble.ai{background:var(--bubble-ai);color:var(--text);border:1.5px solid var(--border);border-bottom-left-radius:4px;}
+.msg-bubble.user{background:linear-gradient(135deg,var(--bubble-user-start),var(--bubble-user-end));color:#fff;border-bottom-right-radius:4px;}
+.msg-bubble.typing-bubble{background:var(--bubble-ai);border:1.5px solid var(--border);border-bottom-left-radius:4px;padding:0.85rem 1.1rem;}
+
+.typing-dots{display:flex;gap:4px;align-items:center;}
+.typing-dots span{width:7px;height:7px;border-radius:50%;background:var(--teal-mid);animation:dotBounce 1.2s infinite ease-in-out;}
+.typing-dots span:nth-child(2){animation-delay:0.2s;}
+.typing-dots span:nth-child(3){animation-delay:0.4s;}
+@keyframes dotBounce{0%,80%,100%{transform:translateY(0);opacity:0.4;}40%{transform:translateY(-6px);opacity:1;}}
+
+.msg-img{max-width:200px;border-radius:10px;display:block;margin-bottom:0.5rem;border:1px solid rgba(255,255,255,0.2);}
+.msg-time{font-size:0.63rem;color:var(--muted);margin-top:0.2rem;padding:0 0.3rem;}
+.msg-row.user .msg-time{text-align:right;}
+
+/* PHOTO TIP BANNER */
+.photo-tip-banner{
+  background:linear-gradient(135deg,#fffbeb,#fef3c7);
+  border:1.5px solid #f59e0b;
+  border-radius:14px;
+  padding:0.85rem 1rem;
+  font-size:0.8rem;
+  color:#78350f;
+  line-height:1.6;
+  max-width:72%;
+  margin-left:calc(32px + 0.65rem);
+  animation:msgSlide 0.25s ease;
+}
+.photo-tip-banner strong{color:#92400e;}
+.photo-tip-banner ul{margin:0.4rem 0 0 1rem;padding:0;}
+.photo-tip-banner ul li{margin-bottom:0.15rem;}
+
+/* INPUT AREA */
+#input-area {
+  flex-shrink: 0;
+  background: #fff;
+  border-top: 1.5px solid var(--border);
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.6rem;
+  position: relative;
+  z-index: 10;
+  /* margin-bottom: 62px; REMOVE THIS LINE ENTIRELY */
+}
+
+#img-preview-strip{
+  display:none;position:absolute;bottom:100%;left:0;right:0;
+  background:#fff;border-top:1.5px solid var(--border);
+  padding:0.6rem 1rem;gap:0.6rem;align-items:center;
+}
+#img-preview-strip.show{display:flex;}
+#img-preview-thumb{width:52px;height:52px;border-radius:8px;object-fit:cover;border:1.5px solid var(--border);}
+#img-preview-name{flex:1;font-size:0.78rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+#img-preview-remove{background:none;border:none;color:var(--muted);font-size:1rem;cursor:pointer;padding:0.2rem 0.4rem;border-radius:6px;transition:color 0.2s, background 0.2s;}
+#img-preview-remove:hover{color:#ef4444;background:#fee2e2;}
+
+#upload-btn{
+  width:44px;height:44px;border-radius:12px;background:var(--bg2);border:1.5px solid var(--border);
+  color:var(--teal);display:flex;align-items:center;justify-content:center;cursor:pointer;
+  flex-shrink:0;transition:all 0.2s;position:relative;overflow:hidden;
+}
+#upload-btn:hover{background:var(--teal-light);border-color:var(--teal);}
+#upload-btn svg{width:20px;height:20px;pointer-events:none;}
+#file-input{position:absolute;inset:0;opacity:0;cursor:pointer;font-size:0;}
+
+#chat-input{
+  flex:1;background:var(--bg2);border:1.5px solid var(--border);border-radius:14px;
+  padding:0.7rem 1rem;font-size:0.88rem;font-family:'Plus Jakarta Sans',sans-serif;
+  color:var(--text);outline:none;resize:none;max-height:120px;min-height:44px;
+  line-height:1.5;transition:border-color 0.2s, background 0.2s;overflow-y:auto;
+  scrollbar-width:none;
+}
+#chat-input::-webkit-scrollbar{display:none;}
+#chat-input:focus{border-color:var(--teal);background:#fff;}
+#chat-input::placeholder{color:#a0b8b5;}
+
+#send-btn{
+  width:44px;height:44px;border-radius:12px;
+  background:linear-gradient(135deg,var(--teal),var(--teal-mid));border:none;color:#fff;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;
+  transition:all 0.2s;box-shadow:0 2px 8px rgba(26,158,143,0.3);
+}
+#send-btn:hover{transform:scale(1.06);box-shadow:0 4px 14px rgba(26,158,143,0.45);}
+#send-btn:disabled{opacity:0.5;cursor:default;transform:none;}
+#send-btn svg{width:18px;height:18px;}
+
+/* DOWNLOAD DROPDOWN */
+.dl-wrap{position:relative;}
+.dl-wrap:has(.hidden){display:none;}
+#dl-dropdown{
+  display:none;position:absolute;top:calc(100% + 8px);right:0;
+  background:#fff;border:1.5px solid var(--border);border-radius:14px;
+  box-shadow:0 8px 28px rgba(26,158,143,0.15);overflow:hidden;min-width:180px;z-index:50;
+  animation:dropIn 0.18s ease;
+}
+@keyframes dropIn{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:translateY(0);}}
+#dl-dropdown.open{display:block;}
+.dl-item{padding:0.75rem 1rem;font-size:0.82rem;font-weight:500;color:var(--text);cursor:pointer;display:flex;align-items:center;gap:0.6rem;transition:background 0.15s;border:none;background:none;width:100%;text-align:left;font-family:'Plus Jakarta Sans',sans-serif;}
+.dl-item:hover{background:var(--teal-light);color:var(--teal-dark);}
+.dl-item + .dl-item{border-top:1px solid var(--border);}
+
+/* NEW CHAT CONFIRM */
+#confirm-overlay{display:none;position:absolute;inset:0;z-index:150;background:rgba(10,74,66,0.6);backdrop-filter:blur(4px);align-items:center;justify-content:center;}
+#confirm-overlay.show{display:flex;}
+.confirm-box{background:#fff;border-radius:20px;padding:2rem;max-width:320px;width:90%;text-align:center;box-shadow:0 16px 48px rgba(10,74,66,0.2);}
+.confirm-box h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--teal-deep);margin-bottom:0.5rem;}
+.confirm-box p{font-size:0.84rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.6;}
+.confirm-btns{display:flex;gap:0.75rem;}
+.confirm-btns button{flex:1;padding:0.7rem;border-radius:10px;font-size:0.85rem;font-weight:600;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all 0.2s;}
+#confirm-yes{background:var(--teal);color:#fff;border:none;}
+#confirm-yes:hover{background:var(--teal-dark);}
+#confirm-no{background:var(--bg2);color:var(--muted);border:1.5px solid var(--border);}
+#confirm-no:hover{background:var(--bg3);color:var(--text);}
+
+/* TOAST */
+#toast{
+  position:fixed;bottom:6rem;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--teal-deep);color:#fff;padding:0.6rem 1.2rem;border-radius:50px;
+  font-size:0.8rem;font-weight:500;font-family:'Plus Jakarta Sans',sans-serif;
+  opacity:0;transition:opacity 0.3s, transform 0.3s;pointer-events:none;z-index:999;white-space:nowrap;
+}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+/* MOBILE */
+@media(max-width:768px){
+#pixie-page {
+    left: 0; /* Reset desktop sidebar offset */
+    bottom: 62px; /* Pin perfectly above the mobile bottom nav */
+    padding-bottom: env(safe-area-inset-bottom); /* Fix iPhone home bar */
+  }
+  
+  /* Make sure there are no ghost margins on mobile either */
+  #input-area {
+    margin-bottom: 0 !important; 
+  }
+  
+  #pixie-topbar{padding:0 1rem;}
+  .topbar-btn span:not(.btn-icon){display:none;}
+  .topbar-btn{padding:0.4rem 0.55rem;}
+  #student-name-badge{display:none !important;}
+  .msg-bubble{max-width:85%;font-size:0.86rem;}
+  .qs-grid{grid-template-columns:1fr 1fr;gap:0.6rem;}
+  #messages-area{padding:1rem 0.75rem;}
+  
+
+  
+  #toast{bottom:calc(62px + 2rem);}
+  .photo-tip-banner{max-width:90%;margin-left:0;}
+}
+@media(max-width:380px){.qs-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body data-page="pixie">
+
+<div id="pixie-page">
+
+  <!-- WELCOME OVERLAY -->
+  <div id="welcome-overlay">
+    <div class="welcome-inner">
+      <div class="welcome-avatar">✨</div>
+      <h1>Hi, I'm Pixie!</h1>
+      <p>Your AI study buddy at DS Vedanta Academy.<br>I'm here to help you learn, solve problems and plan your future.</p>
+      <div class="welcome-input-wrap">
+        <label for="name-input">What should I call you?</label>
+        <input type="text" id="name-input" placeholder="Enter your name..." maxlength="30" autocomplete="off" autocorrect="off"/>
+        <button id="name-submit">Let's Start Studying! 🚀</button>
+      </div>
+      <button class="welcome-skip" id="welcome-skip">Skip for now</button>
+      <div class="welcome-badges">
+        <span class="welcome-badge">Class 7–12</span>
+        <span class="welcome-badge">Science</span>
+        <span class="welcome-badge">Maths</span>
+        <span class="welcome-badge">SST</span>
+        <span class="welcome-badge">English</span>
+        <span class="welcome-badge">Career Guidance</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOP BAR -->
+  <div id="pixie-topbar">
+    <div class="topbar-left">
+      <div class="pixie-avatar-wrap">
+        <div class="pixie-avatar">✨</div>
+        <div class="pixie-online-dot"></div>
+      </div>
+      <div class="topbar-info">
+        <h2>Pixie</h2>
+        <span>DS Vedanta Study Buddy</span>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <span id="student-name-badge"></span>
+      <div class="dl-wrap">
+        <button class="topbar-btn hidden" id="dl-btn" onclick="toggleDownloadMenu()">
+          <span class="btn-icon">⬇️</span>
+          <span>Save Chat</span>
+        </button>
+        <div id="dl-dropdown">
+          <button class="dl-item" onclick="copyChat()">📋 Copy as Text</button>
+          <button class="dl-item" onclick="downloadPDF()">📄 Download PDF</button>
+        </div>
+      </div>
+      <button class="topbar-btn" id="new-chat-btn" onclick="showNewChatConfirm()">
+        <span class="btn-icon">🔄</span>
+        <span>New Chat</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- MESSAGES AREA -->
+  <div id="messages-area">
+    <div id="quickstart">
+      <h3>How can I help you today?</h3>
+      <p>Pick a topic to get started, or just type your question below</p>
+      <div class="qs-grid">
+        <button class="qs-btn" onclick="quickStart('photo')">
+          <span class="qs-icon">📸</span>
+          <span class="qs-title">Upload a Photo</span>
+          <span class="qs-sub">Photo of a question or problem</span>
+        </button>
+        <button class="qs-btn" onclick="quickStart('problem')">
+          <span class="qs-icon">📐</span>
+          <span class="qs-title">Solve a Problem</span>
+          <span class="qs-sub">Maths, Science, any subject</span>
+        </button>
+        <button class="qs-btn" onclick="quickStart('concept')">
+          <span class="qs-icon">🔬</span>
+          <span class="qs-title">Explain a Concept</span>
+          <span class="qs-sub">Make any topic easy to understand</span>
+        </button>
+        <button class="qs-btn" onclick="quickStart('career')">
+          <span class="qs-icon">🎓</span>
+          <span class="qs-title">Career & Future</span>
+          <span class="qs-sub">Streams, colleges, JEE, NEET & more</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- IMAGE PREVIEW STRIP -->
+  <div id="img-preview-strip">
+    <img id="img-preview-thumb" src="" alt="preview"/>
+    <span id="img-preview-name">image.jpg</span>
+    <button id="img-preview-remove" onclick="removeImage()" title="Remove image">✕</button>
+  </div>
+
+  <!-- INPUT AREA -->
+  <div id="input-area">
+    <label id="upload-btn" title="Upload a photo of your question">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2"/>
+        <circle cx="8.5" cy="8.5" r="1.5"/>
+        <polyline points="21,15 16,10 5,21"/>
+      </svg>
+      <input type="file" id="file-input" accept="image/*" capture="environment"/>
+    </label>
+    <textarea id="chat-input" placeholder="Ask me about your studies" rows="1"></textarea>
+    <button id="send-btn" onclick="sendMessage()" disabled>
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M2 21l21-9L2 3v7l15 2-15 2z"/>
+      </svg>
+    </button>
+  </div>
+
+</div><!-- end #pixie-page -->
+
+<!-- NEW CHAT CONFIRM -->
+<div id="confirm-overlay">
+  <div class="confirm-box">
+    <h3>Start a New Chat?</h3>
+    <p>Your current conversation will be cleared. This cannot be undone.</p>
+    <div class="confirm-btns">
+      <button id="confirm-yes" onclick="confirmNewChat()">Yes, clear it</button>
+      <button id="confirm-no" onclick="hideNewChatConfirm()">Keep chatting</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+// ══════════════════════════════════════
+// CONFIG
+// ══════════════════════════════════════
+const GROQ_API_KEY    = "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";
+const GROQ_TEXT_MODEL = "llama-3.3-70b-versatile";
+const GROQ_VIS_MODEL  = "meta-llama/llama-4-scout-17b-16e-instruct";
+
+const SYSTEM_PROMPT = `You are Pixie, a warm, friendly and highly knowledgeable AI study buddy for DS Vedanta Academy — a coaching centre in Sindri, Dhanbad, Jharkhand, run by Deeptanu Sir.
+
+YOUR SCOPE:
+- You help students deeply with Class 7, 8, 9 and 10 syllabus — Science, Mathematics, Social Science, English and Hindi — for CBSE, ICSE and JAC boards.
+- You also discuss Class 11 and 12 topics if a student is curious or preparing ahead.
+- You discuss career paths, future studies, stream selection (Science/Commerce/Arts), college admissions, JEE, NEET, NDA, board exam strategies, and general academic guidance.
+- You STOP and gently redirect if the conversation moves to topics completely unrelated to education, studies, or academic planning (like cricket, movies, gossip, etc.).
+
+YOUR PERSONALITY:
+- Warm, encouraging and patient — like a brilliant and kind senior student.
+- You explain step by step, using simple language that a Class 7-10 student can understand.
+- You use emojis occasionally to feel friendly but not excessively.
+- You celebrate when a student understands something.
+- You NEVER make a student feel bad for asking a simple or "silly" question.
+- When something is too complex to explain in text, you say: "This one really needs a diagram or a face-to-face explanation — I'd suggest asking Deeptanu Sir in your next class, he'll make it crystal clear! 📚"
+
+WHEN AN IMAGE IS UPLOADED:
+- Carefully read ALL text in the image before answering.
+- If any part of the text is unclear or unreadable, say so honestly and ask the student to type that part.
+- If it is handwritten and hard to read, say: "I can see this is handwritten — let me try my best! If I get something wrong, please type the unclear part and I'll re-solve it for you 😊"
+- Always solve step by step.
+
+WHEN REDIRECTING OFF-TOPIC:
+Say warmly: "That's a bit outside my study zone! I'm best at helping with your studies, exams and future plans. What subject or topic can I help you with today? 😊"
+
+RESPONSE STYLE:
+- Use markdown formatting: **bold** for key terms, numbered lists for steps, bullet points for lists.
+- Keep responses focused and not too long unless the topic demands it.
+- Always end answers to study questions with either "Does that make sense? 😊" or "Hope that helps! Any more doubts? 😊"
+- For maths problems, show every step clearly.
+- For science concepts, use analogies to everyday life.`;
+
+// ══════════════════════════════════════
+// STATE
+// ══════════════════════════════════════
+let chatHistory    = [];
+let studentName    = '';
+let pendingImage   = null;
+let isLoading      = false;
+let hasMessages    = false;
+let dlDropdownOpen = false;
+
+// ══════════════════════════════════════
+// INIT
+// ══════════════════════════════════════
+window.addEventListener('DOMContentLoaded', () => {
+  const savedName = sessionStorage.getItem('pixie_student_name');
+  if (savedName) {
+    studentName = savedName;
+    hideWelcome(false);
+  }
+  setupTextareaAutoResize();
+  setupFileInput();
+  setupClickOutsideDropdown();
+  document.getElementById('chat-input').addEventListener('input', updateSendBtn);
+  document.getElementById('chat-input').addEventListener('keydown', handleEnter);
+  document.getElementById('name-input').addEventListener('keydown', e => { if (e.key === 'Enter') submitName(); });
+  document.getElementById('name-submit').addEventListener('click', submitName);
+  document.getElementById('welcome-skip').addEventListener('click', () => { studentName = 'Student'; hideWelcome(true); });
+});
+
+// ══════════════════════════════════════
+// WELCOME
+// ══════════════════════════════════════
+function submitName() {
+  const val = document.getElementById('name-input').value.trim();
+  if (!val) {
+    document.getElementById('name-input').focus();
+    document.getElementById('name-input').style.borderColor = '#f87171';
+    setTimeout(() => document.getElementById('name-input').style.borderColor = '', 1200);
+    return;
+  }
+  studentName = val;
+  sessionStorage.setItem('pixie_student_name', val);
+  hideWelcome(true);
+}
+
+function hideWelcome(greet) {
+  const overlay = document.getElementById('welcome-overlay');
+  overlay.classList.add('hiding');
+  setTimeout(() => {
+    overlay.style.display = 'none';
+    updateNameBadge();
+
+    // Force layout recalculation for Android PWA
+    // const inputArea = document.getElementById('input-area');
+    // const pixiePage = document.getElementById('pixie-page');
+    // if (inputArea && pixiePage) {
+    //   pixiePage.style.display = 'none';
+    //   pixiePage.offsetHeight;
+    //   pixiePage.style.display = '';
+    //   pixiePage.offsetHeight;
+
+    //   inputArea.style.position = 'relative';
+    //   inputArea.offsetHeight;
+    //   inputArea.style.position = '';
+    //   inputArea.offsetHeight;
+
+    //   setTimeout(() => {
+    //     pixiePage.style.display = 'none';
+    //     pixiePage.offsetHeight;
+    //     pixiePage.style.display = '';
+    //   }, 100);
+    // }
+
+    if (greet) {
+      setTimeout(() => {
+        addPixieMessage(
+          `Great to meet you, **${studentName}**! 🌟 I'm Pixie, your study buddy at DS Vedanta Academy.\n\nI can help you with any subject from Class 7 all the way to Class 12 — and I can even discuss career options, stream selection, JEE, NEET and more.\n\nYou can also 📸 **upload a photo** of any question or problem and I'll do my best to solve it for you!\n\nWhat are you studying today? 😊`
+        );
+      }, 200);
+    }
+  }, 500);
+}
+
+function updateNameBadge() {
+  const badge = document.getElementById('student-name-badge');
+  if (studentName && studentName !== 'Student') {
+    badge.textContent = `👋 ${studentName}`;
+    badge.style.display = 'block';
+  }
+}
+
+// ══════════════════════════════════════
+// QUICK START
+// ══════════════════════════════════════
+function quickStart(type) {
+  hideQuickStart();
+  if (type === 'photo') {
+    document.getElementById('file-input').click();
+    return;
+  }
+  const messages = {
+    problem: `Can you help me solve a problem? I'm studying and I need help.`,
+    concept: "Can you explain a concept to me? I want to understand something from my syllabus.",
+    career:  "I want to know about career options and future studies after Class 10."
+  };
+  document.getElementById('chat-input').value = messages[type];
+  updateSendBtn();
+  document.getElementById('chat-input').focus();
+}
+
+function hideQuickStart() {
+  const qs = document.getElementById('quickstart');
+  if (qs) qs.style.display = 'none';
+}
+
+// ══════════════════════════════════════
+// FILE UPLOAD
+// ══════════════════════════════════════
+function setupFileInput() {
+  document.getElementById('file-input').addEventListener('change', handleFileSelect);
+}
+
+function handleFileSelect(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  if (!file.type.startsWith('image/')) { showToast('Please select an image file 📸'); return; }
+  compressImage(file, (compressed) => {
+    pendingImage = compressed;
+    showImagePreview(compressed);
+    updateSendBtn();
+  });
+  e.target.value = '';
+}
+
+function compressImage(file, callback) {
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      const MAX_SIZE = 1024;
+      let w = img.width, h = img.height;
+      if (w > MAX_SIZE || h > MAX_SIZE) {
+        if (w > h) { h = Math.round(h * MAX_SIZE / w); w = MAX_SIZE; }
+        else { w = Math.round(w * MAX_SIZE / h); h = MAX_SIZE; }
+      }
+      canvas.width = w; canvas.height = h;
+      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+      const mimeType = 'image/jpeg';
+      const dataUrl  = canvas.toDataURL(mimeType, 0.82);
+      const base64   = dataUrl.split(',')[1];
+      callback({ dataUrl, base64, mimeType, name: file.name });
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+function showImagePreview(img) {
+  document.getElementById('img-preview-thumb').src = img.dataUrl;
+  document.getElementById('img-preview-name').textContent = img.name;
+  document.getElementById('img-preview-strip').classList.add('show');
+}
+
+function removeImage() {
+  pendingImage = null;
+  document.getElementById('img-preview-strip').classList.remove('show');
+  document.getElementById('img-preview-thumb').src = '';
+  updateSendBtn();
+}
+
+// ══════════════════════════════════════
+// SEND MESSAGE
+// ══════════════════════════════════════
+function handleEnter(e) {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); if (!isLoading) sendMessage(); }
+}
+
+function updateSendBtn() {
+  const hasText = document.getElementById('chat-input').value.trim().length > 0;
+  const hasImg  = pendingImage !== null;
+  document.getElementById('send-btn').disabled = (!hasText && !hasImg) || isLoading;
+}
+
+async function sendMessage() {
+  if (isLoading) return;
+  const input    = document.getElementById('chat-input');
+  const userText = input.value.trim();
+  const image    = pendingImage;
+  if (!userText && !image) return;
+
+  hideQuickStart();
+  input.value = '';
+  input.style.height = 'auto';
+  removeImage();
+  updateSendBtn();
+
+  if (!hasMessages) {
+    hasMessages = true;
+    document.getElementById('dl-btn').classList.remove('hidden');
+  }
+
+  const displayText = userText || (image ? '📸 Photo uploaded' : '');
+  addUserMessage(displayText, image ? image.dataUrl : null);
+
+  if (image) {
+    addPhotoTipBanner();
+  }
+
+  if (image) {
+    const userContent = [];
+    if (userText) userContent.push({ type: 'text', text: userText });
+    userContent.push({
+      type: 'image_url',
+      image_url: { url: `data:${image.mimeType};base64,${image.base64}` }
+    });
+    if (!userText) userContent.push({ type: 'text', text: 'Please read and solve this question from the image carefully, step by step.' });
+    chatHistory.push({ role: 'user', content: userContent });
+  } else {
+    chatHistory.push({ role: 'user', content: userText });
+  }
+
+  const typingEl = addTypingIndicator();
+  isLoading = true;
+  updateSendBtn();
+
+  try {
+    const reply = await callGroq(!!image);
+    typingEl.remove();
+    chatHistory.push({ role: 'assistant', content: reply });
+    addPixieMessage(reply);
+  } catch (err) {
+    typingEl.remove();
+    addPixieMessage("Oops! I had trouble connecting. Please check your internet and try again 😊");
+    chatHistory.pop();
+  }
+
+  isLoading = false;
+  updateSendBtn();
+}
+
+// ══════════════════════════════════════
+// API CALL — GROQ (text + vision)
+// ══════════════════════════════════════
+async function callGroq(hasImage) {
+  const model = hasImage ? GROQ_VIS_MODEL : GROQ_TEXT_MODEL;
+
+  let messages;
+  if (hasImage) {
+    messages = [
+      { role: 'system', content: SYSTEM_PROMPT },
+      chatHistory[chatHistory.length - 1]
+    ];
+  } else {
+    messages = [
+      { role: 'system', content: SYSTEM_PROMPT },
+      ...chatHistory.map(m => ({
+        role: m.role,
+        content: typeof m.content === 'string'
+          ? m.content
+          : m.content.map(c => c.text || '').filter(Boolean).join(' ') || 'Sent an image.'
+      }))
+    ];
+  }
+
+  const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${GROQ_API_KEY}`
+    },
+    body: JSON.stringify({
+      model,
+      messages,
+      max_tokens: 1500,
+      temperature: 0.7
+    })
+  });
+
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new Error(err.error?.message || 'Groq API error');
+  }
+  const data = await res.json();
+  return data.choices[0].message.content;
+}
+
+// ══════════════════════════════════════
+// UI — ADD MESSAGES
+// ══════════════════════════════════════
+function addUserMessage(text, imageDataUrl) {
+  const area = document.getElementById('messages-area');
+  const initials = studentName ? studentName.charAt(0).toUpperCase() : 'S';
+  const row = document.createElement('div');
+  row.className = 'msg-row user';
+  let imgHtml = '';
+  if (imageDataUrl) imgHtml = `<img class="msg-img" src="${imageDataUrl}" alt="Uploaded question"/>`;
+  const textHtml = text && text !== '📸 Photo uploaded'
+    ? `<div style="white-space:pre-wrap;">${escHtml(text)}</div>`
+    : (imageDataUrl ? '' : `<div>${escHtml(text)}</div>`);
+  row.innerHTML = `
+    <div class="msg-avatar user-av">${initials}</div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.2rem;">
+      <div class="msg-bubble user">${imgHtml}${textHtml}</div>
+      <div class="msg-time">${getTime()}</div>
+    </div>
+  `;
+  area.appendChild(row);
+  scrollToBottom();
+}
+
+function addPhotoTipBanner() {
+  const area = document.getElementById('messages-area');
+  const banner = document.createElement('div');
+  banner.className = 'photo-tip-banner';
+  banner.innerHTML = `
+    <strong>📸 Photo tip for best results:</strong>
+    <ul>
+      <li>Make sure the photo is <strong>well-lit</strong> and not blurry</li>
+      <li>Hold your phone <strong>straight</strong> above the page</li>
+      <li>If it's <strong>handwritten</strong>, typing the question gives more accurate answers</li>
+      <li>For book/printed questions, photos usually work great ✅</li>
+    </ul>
+  `;
+  area.appendChild(banner);
+  scrollToBottom();
+}
+
+function addPixieMessage(text) {
+  const area = document.getElementById('messages-area');
+  const row = document.createElement('div');
+  row.className = 'msg-row';
+  row.innerHTML = `
+    <div class="msg-avatar">✨</div>
+    <div style="display:flex;flex-direction:column;gap:0.2rem;">
+      <div class="msg-bubble ai">${renderMarkdown(text)}</div>
+      <div class="msg-time">Pixie · ${getTime()}</div>
+    </div>
+  `;
+  area.appendChild(row);
+  scrollToBottom();
+}
+
+function addTypingIndicator() {
+  const area = document.getElementById('messages-area');
+  const row = document.createElement('div');
+  row.className = 'msg-row';
+  row.id = 'typing-row';
+  row.innerHTML = `
+    <div class="msg-avatar">✨</div>
+    <div class="msg-bubble typing-bubble">
+      <div class="typing-dots"><span></span><span></span><span></span></div>
+    </div>
+  `;
+  area.appendChild(row);
+  scrollToBottom();
+  return row;
+}
+
+// ══════════════════════════════════════
+// MARKDOWN RENDERER
+// ══════════════════════════════════════
+function renderMarkdown(text) {
+  let html = escHtml(text);
+  html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
+  html = html.replace(/`([^`]+)`/g, '<code style="background:#f0faf9;padding:0.1rem 0.35rem;border-radius:4px;font-size:0.85em;font-family:monospace;color:#0f6e63;">$1</code>');
+  html = html.replace(/^(\d+)\. (.+)$/gm, '<li style="margin-left:1.2rem;margin-bottom:0.2rem;">$2</li>');
+  html = html.replace(/(<li[^>]*>.*<\/li>\n?)+/g, '<ol style="margin:0.5rem 0 0.5rem 0.2rem;">$&</ol>');
+  html = html.replace(/^[-•] (.+)$/gm, '<li style="margin-left:1.2rem;margin-bottom:0.2rem;">$1</li>');
+  html = html.replace(/\n\n/g, '</p><p style="margin-top:0.6rem;">');
+  html = html.replace(/\n/g, '<br>');
+  return `<p>${html}</p>`;
+}
+
+function escHtml(str) {
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function getTime() {
+  return new Date().toLocaleTimeString('en-IN', { hour:'2-digit', minute:'2-digit' });
+}
+
+// ══════════════════════════════════════
+// SCROLL
+// ══════════════════════════════════════
+function scrollToBottom() {
+  const area = document.getElementById('messages-area');
+  area.scrollTop = area.scrollHeight;
+}
+
+// ══════════════════════════════════════
+// TEXTAREA AUTO RESIZE
+// ══════════════════════════════════════
+function setupTextareaAutoResize() {
+  const ta = document.getElementById('chat-input');
+  ta.addEventListener('input', () => {
+    ta.style.height = 'auto';
+    ta.style.height = Math.min(ta.scrollHeight, 120) + 'px';
+  });
+}
+
+// ══════════════════════════════════════
+// NEW CHAT
+// ══════════════════════════════════════
+function showNewChatConfirm() {
+  if (!hasMessages) return;
+  document.getElementById('confirm-overlay').classList.add('show');
+}
+function hideNewChatConfirm() {
+  document.getElementById('confirm-overlay').classList.remove('show');
+}
+function confirmNewChat() {
+  hideNewChatConfirm();
+  chatHistory = []; hasMessages = false; pendingImage = null;
+  const area = document.getElementById('messages-area');
+  area.querySelectorAll('.msg-row, .photo-tip-banner').forEach(el => el.remove());
+  const qs = document.getElementById('quickstart');
+  if (qs) qs.style.display = '';
+  document.getElementById('img-preview-strip').classList.remove('show');
+  document.getElementById('dl-btn').classList.add('hidden');
+  closeDlDropdown();
+  document.getElementById('chat-input').value = '';
+  document.getElementById('chat-input').style.height = 'auto';
+  updateSendBtn();
+  showToast('Chat cleared — fresh start! ✨');
+}
+
+// ══════════════════════════════════════
+// DOWNLOAD
+// ══════════════════════════════════════
+function toggleDownloadMenu() {
+  dlDropdownOpen = !dlDropdownOpen;
+  document.getElementById('dl-dropdown').classList.toggle('open', dlDropdownOpen);
+}
+function closeDlDropdown() {
+  dlDropdownOpen = false;
+  document.getElementById('dl-dropdown').classList.remove('open');
+}
+function setupClickOutsideDropdown() {
+  document.addEventListener('click', (e) => {
+    const wrap = document.querySelector('.dl-wrap');
+    if (wrap && !wrap.contains(e.target)) closeDlDropdown();
+  });
+}
+
+function copyChat() {
+  closeDlDropdown();
+  if (chatHistory.length === 0) { showToast('No messages to copy yet!'); return; }
+  let text = `DS Vedanta Academy — Pixie Chat\nStudent: ${studentName}\nDate: ${new Date().toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'})}\n${'─'.repeat(40)}\n\n`;
+  chatHistory.forEach(msg => {
+    const role    = msg.role === 'user' ? studentName : 'Pixie';
+    const content = typeof msg.content === 'string' ? msg.content : msg.content.map(c => c.text || '[Image]').join(' ');
+    text += `${role}:\n${content}\n\n`;
+  });
+  navigator.clipboard.writeText(text).then(() => showToast('Chat copied to clipboard! 📋')).catch(() => showToast('Could not copy — try again'));
+}
+
+function downloadPDF() {
+  closeDlDropdown();
+  if (chatHistory.length === 0) { showToast('No messages to save yet!'); return; }
+  const date = new Date().toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'});
+  let bodyHtml = '';
+  chatHistory.forEach(msg => {
+    const isUser  = msg.role === 'user';
+    const role    = isUser ? studentName : 'Pixie ✨';
+    const content = typeof msg.content === 'string' ? msg.content : msg.content.map(c => c.text || '[Image uploaded]').join(' ');
+    const bgColor = isUser ? '#e6f7f5' : '#f9f9f9';
+    const nameColor = isUser ? '#0f6e63' : '#0a4a42';
+    const align   = isUser ? 'right' : 'left';
+    bodyHtml += `<div style="margin-bottom:1.2rem;text-align:${align};"><div style="font-size:0.7rem;font-weight:700;color:${nameColor};text-transform:uppercase;letter-spacing:1px;margin-bottom:0.3rem;">${escHtml(role)}</div><div style="display:inline-block;max-width:80%;background:${bgColor};border-radius:12px;padding:0.75rem 1rem;font-size:0.88rem;line-height:1.65;color:#1a2e2c;text-align:left;border:1px solid #c8e6e2;">${escHtml(content).replace(/\n/g,'<br>')}</div></div>`;
+  });
+  const html = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Pixie Chat</title>'
+    + '<style>body{font-family:sans-serif;padding:2rem;max-width:700px;margin:0 auto;color:#1a2e2c;}'
+    + 'h1{font-family:Georgia,serif;color:#0a4a42;font-size:1.4rem;}'
+    + '.meta{font-size:0.78rem;color:#5a7a77;margin-bottom:1.5rem;border-bottom:2px solid #c8e6e2;padding-bottom:1rem;}'
+    + '.footer{margin-top:2rem;border-top:1px solid #c8e6e2;padding-top:1rem;font-size:0.72rem;color:#5a7a77;text-align:center;}'
+    + '<\/style><\/head><body>'
+    + '<h1>✨ Pixie — Study Chat<\/h1>'
+    + '<div class="meta">Student: <strong>' + escHtml(studentName) + '<\/strong> &nbsp;&middot;&nbsp; Date: ' + date + ' &nbsp;&middot;&nbsp; DS Vedanta Academy<\/div>'
+    + bodyHtml
+    + '<div class="footer">DS Vedanta Academy &middot; Sindri, Dhanbad &middot; +91 94705 68366 &middot; Generated by Pixie AI Study Buddy<\/div>'
+    + '<\/body><\/html>';
+  const blob = new Blob([html],{type:'text/html'});
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href = url; a.download = `Pixie-Chat-${studentName}-${new Date().toISOString().slice(0,10)}.html`;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url);
+  showToast('Chat saved! Open the file in a browser to print as PDF.');
+}
+
+// ══════════════════════════════════════
+// TOAST
+// ══════════════════════════════════════
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 3000);
+}
+</script>
+
+<script src="pixie.js"></script>
+<script src="sidebar.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js');
+  }
+</script>
+</body>
+</html>

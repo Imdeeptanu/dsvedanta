@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0a4a42">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="DS Vedanta Academy — Best coaching for Class 7, 8, 9 &amp; 10 in Sindri, Dhanbad. Expert tuition for CBSE, ICSE &amp; JAC boards. Free notes &amp; study material. Science &amp; Maths specialist. Est. 2019. Call +91 94705 68366.">
+<meta name="keywords" content="tuition in Sindri, coaching in Dhanbad, Class 10 coaching Sindri, best tuition Dhanbad, CBSE coaching Sindri, JAC coaching Dhanbad, Maths tuition Sindri, Science tuition Dhanbad, DS Vedanta Academy, Class 7 8 9 10 tuition Jharkhand, Deeptanu Sarkar tuition">
+<meta name="author" content="Deeptanu Sarkar — DS Vedanta Academy">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="DS Vedanta Academy — Best Coaching in Sindri, Dhanbad">
+<meta property="og:description" content="Expert coaching for Class 7–10 in Sindri, Dhanbad. CBSE, ICSE &amp; JAC boards. Free study material. Call now!">
+<meta property="og:type" content="website">
+<title>DS Vedanta Academy | Best Coaching in Sindri Dhanbad | Class 7–10 CBSE ICSE JAC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --teal:#1a9e8f;
+  --teal-dark:#0f6e63;
+  --teal-deep:#0a4a42;
+  --teal-light:#e6f7f5;
+  --teal-mid:#2dbdac;
+  --gold:#c9a84c;
+  --gold-light:#f5e9c8;
+  --bg:#ffffff;
+  --bg2:#f4faf9;
+  --bg3:#e9f5f3;
+  --text:#1a2e2c;
+  --muted:#5a7a77;
+  --border:#c8e6e2;
+  --white:#ffffff;
+}
+html{scroll-behavior:smooth;}
+html{overflow-x:hidden;}
+body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;line-height:1.7;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0.9rem 3rem;
+  background:rgba(255,255,255,0.95);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  box-shadow:0 2px 20px rgba(26,158,143,0.08);
+}
+.nav-brand{display:flex;align-items:center;gap:0.8rem;text-decoration:none;}
+.nav-logo-wrap{width:46px;height:46px;display:flex;align-items:center;justify-content:center;}
+.nav-logo-wrap img{width:100%;height:100%;object-fit:contain;}
+.nav-name{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--teal-dark);line-height:1.1;}
+.nav-name small{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:0.62rem;font-weight:400;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-top:1px;}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.88rem;font-weight:500;transition:color 0.2s;}
+.nav-links a:hover{color:var(--teal);}
+.nav-cta{background:var(--teal);color:#fff;padding:0.5rem 1.4rem;border-radius:50px;font-size:0.85rem;font-weight:600;text-decoration:none;transition:background 0.2s,transform 0.2s;}
+.nav-cta:hover{background:var(--teal-dark);transform:translateY(-1px);}
+
+/* ── HAMBURGER ── */
+.hamburger{
+  display:none;flex-direction:column;justify-content:center;gap:5px;
+  background:none;border:none;cursor:pointer;padding:4px;
+}
+.hamburger span{display:block;width:24px;height:2px;background:var(--teal-dark);border-radius:2px;transition:all 0.3s;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+/* mobile nav drawer */
+.mobile-menu{
+  display:none;position:fixed;top:64px;left:0;right:0;bottom:62px;z-index:99;
+  background:rgba(255,255,255,0.98);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);padding:1rem 1.5rem 1.5rem;
+  flex-direction:column;gap:0.2rem;
+  overflow-y:auto;
+}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{
+  color:var(--text);text-decoration:none;font-size:1rem;font-weight:500;
+  padding:0.7rem 0;border-bottom:1px solid var(--border);transition:color 0.2s;
+}
+.mobile-menu a:last-child{border-bottom:none;}
+.mobile-menu a:hover{color:var(--teal);}
+.mobile-menu .mob-cta{
+  margin-top:0.8rem;background:var(--teal);color:#fff;
+  text-align:center;padding:0.8rem;border-radius:50px;font-weight:600;border-bottom:none;
+}
+.mobile-menu .mob-cta:hover{background:var(--teal-dark);}
+
+/* ── HERO ── */
+#hero{
+  min-height:100vh;display:flex;align-items:center;
+  padding:7rem 3rem 4rem;
+  background:linear-gradient(135deg,#f0faf9 0%,#e4f5f2 40%,#faf8f2 100%);
+  position:relative;overflow:hidden;
+}
+#hero::before{
+  content:'';position:absolute;top:-100px;right:-100px;
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(26,158,143,0.1) 0%,transparent 70%);
+  pointer-events:none;
+}
+#hero::after{
+  content:'';position:absolute;bottom:-80px;left:-80px;
+  width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,168,76,0.08) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr auto;align-items:center;gap:4rem;width:100%;}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  font-size:0.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  color:var(--teal);background:rgba(26,158,143,0.08);border:1px solid rgba(26,158,143,0.2);
+  padding:0.35rem 1rem;border-radius:50px;margin-bottom:1.5rem;
+}
+.hero-tag::before{content:'';display:block;width:6px;height:6px;background:var(--teal);border-radius:50%;}
+h1{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5vw,4rem);font-weight:800;line-height:1.1;letter-spacing:-1px;color:var(--teal-deep);margin-bottom:0.5rem;}
+.hero-slogan{font-size:1rem;font-weight:600;color:var(--gold);letter-spacing:2px;text-transform:uppercase;margin-bottom:1.2rem;}
+.hero-sub{font-size:1rem;color:var(--muted);max-width:480px;margin-bottom:2rem;line-height:1.8;}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn-primary{background:var(--teal);color:#fff;padding:0.9rem 2rem;border-radius:50px;font-size:0.92rem;font-weight:600;text-decoration:none;transition:background 0.2s,transform 0.2s,box-shadow 0.2s;}
+.btn-primary:hover{background:var(--teal-dark);transform:translateY(-2px);box-shadow:0 8px 24px rgba(26,158,143,0.25);}
+.btn-outline{border:2px solid var(--teal);color:var(--teal);padding:0.9rem 2rem;border-radius:50px;font-size:0.92rem;font-weight:600;text-decoration:none;transition:all 0.2s;}
+.btn-outline:hover{background:var(--teal);color:#fff;}
+.hero-logo-big{width:220px;height:220px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.board-pills{display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:1.5rem;}
+.board-pill{font-size:0.72rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:0.3rem 0.85rem;border-radius:50px;background:var(--white);border:1.5px solid var(--border);color:var(--teal-dark);}
+
+/* ── STATS ── */
+.stats-bar{background:var(--teal);padding:2.5rem 3rem;display:flex;justify-content:center;gap:4rem;flex-wrap:wrap;}
+.stat-item{text-align:center;color:#fff;}
+.stat-num{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;line-height:1;}
+.stat-label{font-size:0.75rem;letter-spacing:1.5px;text-transform:uppercase;opacity:0.8;margin-top:0.3rem;}
+
+/* ── SECTIONS ── */
+.section-wrap{max-width:1100px;margin:0 auto;padding:5.5rem 3rem;}
+.sec-label{font-size:0.72rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:0.75rem;}
+h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;color:var(--teal-deep);letter-spacing:-0.5px;margin-bottom:0.8rem;}
+.sec-sub{color:var(--muted);max-width:500px;margin-bottom:3rem;font-size:0.97rem;}
+
+/* ── SUBJECTS ── */
+#subjects-bg{background:var(--bg2);}
+.subjects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1.2rem;}
+.subj-card{
+  background:#fff;border:1.5px solid var(--border);border-radius:18px;
+  padding:1.8rem 1.5rem;text-decoration:none;color:var(--text);
+  transition:border-color 0.25s,transform 0.25s,box-shadow 0.25s;
+  position:relative;overflow:hidden;
+}
+.subj-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,var(--teal),var(--teal-mid));
+  opacity:0;transition:opacity 0.25s;
+}
+.subj-card:hover{border-color:var(--teal);transform:translateY(-5px);box-shadow:0 12px 32px rgba(26,158,143,0.12);}
+.subj-card:hover::before{opacity:1;}
+.subj-icon{font-size:2.2rem;margin-bottom:1rem;display:block;}
+.subj-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--teal-deep);margin-bottom:0.4rem;}
+.subj-card p{font-size:0.84rem;color:var(--muted);line-height:1.6;}
+.subj-tag{display:inline-block;margin-top:1rem;font-size:0.68rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;padding:0.25rem 0.7rem;border-radius:50px;background:var(--teal-light);color:var(--teal-dark);}
+
+/* ── RESOURCES ── */
+.filter-row{display:flex;gap:0.6rem;flex-wrap:wrap;margin-bottom:2rem;}
+.filter-btn{
+  background:#fff;border:1.5px solid var(--border);color:var(--muted);
+  padding:0.4rem 1.1rem;border-radius:50px;font-size:0.82rem;font-weight:500;
+  cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;transition:all 0.2s;
+}
+.filter-btn.active,.filter-btn:hover{border-color:var(--teal);color:var(--teal);background:var(--teal-light);}
+.res-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1.2rem;}
+.res-card{
+  background:#fff;border:1.5px solid var(--border);border-radius:16px;
+  padding:1.4rem;display:flex;flex-direction:column;gap:1rem;
+  transition:border-color 0.25s,box-shadow 0.25s;
+}
+.res-card:hover{border-color:var(--teal);box-shadow:0 6px 24px rgba(26,158,143,0.1);}
+.res-meta{display:flex;align-items:center;gap:0.85rem;}
+.pdf-icon{
+  width:44px;height:44px;border-radius:12px;
+  background:linear-gradient(135deg,var(--teal-light),#c8ede9);
+  border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.pdf-icon svg{width:22px;height:22px;}
+.res-info h4{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:var(--teal-deep);margin-bottom:0.2rem;}
+.res-info span{font-size:0.75rem;color:var(--muted);}
+.res-tags{display:flex;gap:0.5rem;flex-wrap:wrap;}
+.tag{font-size:0.68rem;font-weight:500;padding:0.2rem 0.65rem;border-radius:50px;background:var(--bg3);border:1px solid var(--border);color:var(--muted);}
+.res-actions{display:flex;gap:0.75rem;margin-top:auto;}
+.btn-view,.btn-dl{
+  flex:1;text-align:center;padding:0.55rem;border-radius:8px;
+  font-size:0.82rem;font-weight:600;text-decoration:none;transition:all 0.2s;
+}
+.btn-view{background:var(--teal-light);color:var(--teal-dark);border:1.5px solid var(--border);}
+.btn-view:hover{background:var(--teal);color:#fff;border-color:var(--teal);}
+.btn-dl{background:#fff;color:var(--teal);border:1.5px solid var(--teal);}
+.btn-dl:hover{background:var(--teal);color:#fff;}
+#no-results{
+  display:none;text-align:center;padding:2.5rem 1rem;
+  color:var(--muted);font-size:0.95rem;width:100%;
+}
+#no-results span{font-size:2rem;display:block;margin-bottom:0.5rem;}
+
+/* ── HOW IT WORKS ── */
+#how-bg{background:var(--bg2);}
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1.5rem;}
+.step{background:#fff;border:1.5px solid var(--border);border-radius:18px;padding:2rem 1.5rem;position:relative;}
+.step-num{
+  width:44px;height:44px;border-radius:50%;
+  background:linear-gradient(135deg,var(--teal),var(--teal-mid));
+  color:#fff;font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;margin-bottom:1.2rem;
+}
+.step h3{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--teal-deep);margin-bottom:0.5rem;}
+.step p{font-size:0.84rem;color:var(--muted);line-height:1.6;}
+
+/* ── WHY US ── */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.2rem;}
+.why-card{display:flex;gap:1rem;align-items:flex-start;background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:1.4rem;}
+.why-icon{width:42px;height:42px;border-radius:10px;background:var(--teal-light);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;}
+.why-card h4{font-weight:600;font-size:0.9rem;color:var(--teal-deep);margin-bottom:0.3rem;}
+.why-card p{font-size:0.82rem;color:var(--muted);line-height:1.6;}
+
+/* ── CONTACT ── */
+#contact-bg{background:linear-gradient(135deg,var(--teal-deep) 0%,var(--teal-dark) 100%);}
+.contact-inner{max-width:1100px;margin:0 auto;padding:5.5rem 3rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+.contact-left h2{color:#fff;margin-bottom:0.5rem;}
+.contact-left .sec-label{color:rgba(255,255,255,0.6);}
+.contact-left .sec-sub{color:rgba(255,255,255,0.7);}
+.contact-detail{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.5rem;}
+.cd-icon{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.cd-label{font-size:0.7rem;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,0.55);margin-bottom:0.2rem;}
+.cd-value{font-size:1rem;font-weight:600;color:#fff;}
+.contact-form{background:#fff;border-radius:20px;padding:2rem;}
+.contact-form h3{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--teal-deep);margin-bottom:1.5rem;}
+form{display:flex;flex-direction:column;gap:0.9rem;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;}
+input,select,textarea{
+  background:#f8fdfc;border:1.5px solid var(--border);border-radius:10px;
+  color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;font-size:0.9rem;
+  padding:0.75rem 1rem;width:100%;outline:none;transition:border-color 0.2s;
+}
+input::placeholder,textarea::placeholder{color:#a0b8b5;}
+input:focus,select:focus,textarea:focus{border-color:var(--teal);background:#fff;}
+select option{background:#fff;}
+textarea{resize:vertical;min-height:110px;}
+.submit-btn{
+  background:var(--teal);color:#fff;border:none;padding:0.9rem;
+  border-radius:10px;font-size:0.95rem;font-weight:600;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  cursor:pointer;transition:background 0.2s,transform 0.2s;
+}
+.submit-btn:hover{background:var(--teal-dark);transform:translateY(-1px);}
+#form-success{
+  display:none;text-align:center;padding:1.5rem;
+  background:var(--teal-light);border:1.5px solid var(--border);
+  border-radius:12px;color:var(--teal-dark);font-weight:600;font-size:0.95rem;
+}
+
+/* ── FOOTER ── */
+footer{background:var(--teal-deep);border-top:1px solid rgba(255,255,255,0.08);padding:2rem 3rem;text-align:center;}
+.footer-brand{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:0.4rem;}
+.footer-brand span{color:var(--teal-mid);}
+footer p{font-size:0.82rem;color:rgba(255,255,255,0.5);}
+
+/* ── FADE IN ── */
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.fade-in.visible{opacity:1;transform:translateY(0);}
+
+
+/* ── ABOUT TEACHER ── */
+#teacher-bg{background:var(--bg2);}
+.teacher-card{
+  display:grid;grid-template-columns:280px 1fr;gap:3rem;align-items:center;
+  background:#fff;border:1.5px solid var(--border);border-radius:24px;padding:2.5rem;
+}
+.teacher-photo-wrap{position:relative;}
+.teacher-photo{
+  width:100%;aspect-ratio:1;border-radius:20px;object-fit:cover;object-position:top;
+  border:3px solid var(--border);display:block;
+}
+.teacher-badge{
+  position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);
+  background:var(--teal);color:#fff;font-size:0.72rem;font-weight:600;
+  letter-spacing:1px;text-transform:uppercase;padding:0.35rem 1rem;
+  border-radius:50px;white-space:nowrap;box-shadow:0 4px 12px rgba(26,158,143,0.3);
+}
+.teacher-info{padding-top:0.5rem;}
+.teacher-name{font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:800;color:var(--teal-deep);margin-bottom:0.3rem;letter-spacing:-0.5px;}
+.teacher-qual{font-size:0.85rem;color:var(--teal);font-weight:600;letter-spacing:0.5px;margin-bottom:1.2rem;}
+.teacher-bio{font-size:0.95rem;color:var(--muted);line-height:1.85;margin-bottom:1.5rem;}
+.teacher-stats{display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.5rem;}
+.t-stat{text-align:center;background:var(--bg2);border:1.5px solid var(--border);border-radius:12px;padding:0.8rem 1.2rem;}
+.t-stat-num{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--teal);line-height:1;}
+.t-stat-label{font-size:0.68rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-top:0.2rem;}
+.teacher-tags{display:flex;gap:0.6rem;flex-wrap:wrap;}
+.teacher-tag{font-size:0.75rem;font-weight:600;padding:0.3rem 0.85rem;border-radius:50px;background:var(--teal-light);color:var(--teal-dark);border:1px solid var(--border);}
+
+/* ── GALLERY ── */
+#gallery-bg{background:var(--bg);}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.gallery-item{
+  aspect-ratio:4/3;border-radius:16px;overflow:hidden;
+  background:var(--bg3);border:1.5px solid var(--border);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:0.5rem;cursor:pointer;transition:border-color 0.25s,transform 0.25s;
+  position:relative;
+}
+.gallery-item:hover{border-color:var(--teal);transform:scale(1.02);}
+.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;}
+.gallery-placeholder{text-align:center;padding:1.5rem;}
+.gallery-placeholder .g-icon{font-size:2rem;margin-bottom:0.5rem;display:block;opacity:0.5;}
+.gallery-placeholder p{font-size:0.78rem;color:var(--muted);line-height:1.5;}
+.gallery-placeholder code{font-size:0.7rem;background:var(--border);padding:0.1rem 0.4rem;border-radius:4px;color:var(--teal-dark);}
+
+/* ── CALL FLOAT BUTTON ── */
+#call-float{
+  position:fixed;bottom:6rem;right:2rem;z-index:999;
+  width:58px;height:58px;border-radius:50%;
+  background:var(--teal);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(26,158,143,0.4);
+  text-decoration:none;transition:transform 0.25s,box-shadow 0.25s;
+}
+#call-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(26,158,143,0.6);}
+#call-float svg{width:26px;height:26px;fill:#fff;}
+.call-tooltip{
+  position:absolute;right:70px;top:50%;transform:translateY(-50%);
+  background:#1a2e2c;color:#fff;font-size:0.78rem;font-weight:500;
+  padding:0.35rem 0.8rem;border-radius:8px;white-space:nowrap;
+  opacity:0;pointer-events:none;transition:opacity 0.2s;
+}
+.call-tooltip::after{
+  content:'';position:absolute;right:-6px;top:50%;transform:translateY(-50%);
+  border:6px solid transparent;border-right:none;border-left-color:#1a2e2c;
+}
+#call-float:hover .call-tooltip{opacity:1;}
+.call-btn-section{
+  display:inline-flex;align-items:center;gap:0.6rem;
+  background:#fff;color:var(--teal);border:2px solid var(--teal);
+  padding:0.8rem 1.5rem;border-radius:50px;font-size:0.92rem;font-weight:600;
+  text-decoration:none;transition:all 0.2s;margin-top:1rem;
+}
+.call-btn-section:hover{background:var(--teal);color:#fff;}
+
+/* ── MOBILE TEACHER & GALLERY ── */
+@media(max-width:768px){
+  .teacher-card{grid-template-columns:1fr;text-align:center;}
+  .teacher-photo-wrap{max-width:220px;margin:0 auto 2rem;}
+  .teacher-stats{justify-content:center;}
+  .teacher-tags{justify-content:center;}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);}
+  #call-float{bottom:9rem;right:1.2rem;width:50px;height:50px;}
+  #call-float svg{width:22px;height:22px;}
+  #wa-float{bottom:5rem;right:1.2rem;}
+}
+
+/* ── ANNOUNCEMENT BANNER ── */
+#announcement-bar{
+  background:linear-gradient(90deg,var(--teal-deep),var(--teal-dark),var(--teal));
+  color:#fff;text-align:center;padding:0.6rem 3rem;
+  font-size:0.82rem;font-weight:500;letter-spacing:0.3px;
+  display:flex;align-items:center;justify-content:center;gap:1rem;
+  position:relative;z-index:101;
+}
+#announcement-bar .ann-badge{
+  background:var(--gold);color:#3a2800;font-size:0.68rem;font-weight:700;
+  letter-spacing:1px;text-transform:uppercase;padding:0.2rem 0.65rem;
+  border-radius:50px;white-space:nowrap;flex-shrink:0;
+}
+#announcement-bar .ann-close{
+  position:absolute;right:1rem;top:50%;transform:translateY(-50%);
+  background:none;border:none;color:rgba(255,255,255,0.7);
+  font-size:1.1rem;cursor:pointer;line-height:1;padding:0.2rem 0.4rem;
+  transition:color 0.2s;
+}
+#announcement-bar .ann-close:hover{color:#fff;}
+
+/* ── REVIEWS SECTION ── */
+#reviews-bg{background:var(--bg2);}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.2rem;}
+.review-card{
+  background:#fff;border:1.5px solid var(--border);border-radius:18px;
+  padding:1.6rem;display:flex;flex-direction:column;gap:1rem;
+  transition:border-color 0.25s,box-shadow 0.25s;
+  position:relative;
+}
+.review-card:hover{border-color:var(--teal);box-shadow:0 8px 28px rgba(26,158,143,0.1);}
+.review-quote{
+  font-size:3rem;line-height:1;color:var(--teal-light);
+  font-family:'Playfair Display',serif;font-weight:800;
+  position:absolute;top:1rem;right:1.4rem;
+}
+.review-stars{color:var(--gold);font-size:0.9rem;letter-spacing:1px;}
+.review-text{font-size:0.88rem;color:var(--muted);line-height:1.75;font-style:italic;}
+.review-author{display:flex;align-items:center;gap:0.75rem;margin-top:auto;}
+.review-avatar{
+  width:40px;height:40px;border-radius:50%;
+  background:linear-gradient(135deg,var(--teal),var(--teal-mid));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#fff;
+  flex-shrink:0;
+}
+.review-name{font-size:0.88rem;font-weight:600;color:var(--teal-deep);}
+.review-meta{font-size:0.72rem;color:var(--muted);}
+
+/* ── GOOGLE MAP ── */
+#map-bg{background:var(--bg);}
+.map-wrap{
+  border-radius:18px;overflow:hidden;border:1.5px solid var(--border);
+  box-shadow:0 4px 24px rgba(26,158,143,0.08);
+}
+.map-wrap iframe{display:block;width:100%;height:380px;border:none;}
+
+/* ── VISIT COUNTER ── */
+.visit-strip{
+  background:linear-gradient(135deg,var(--teal-deep),var(--teal-dark));
+  padding:1.8rem 3rem;display:flex;align-items:center;justify-content:center;
+  gap:1.5rem;flex-wrap:wrap;
+}
+.visit-icon{font-size:1.8rem;}
+.visit-text{color:rgba(255,255,255,0.8);font-size:0.9rem;}
+.visit-count{
+  font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;
+  color:var(--gold);min-width:80px;display:inline-block;
+}
+
+/* ── WHATSAPP FLOAT BUTTON ── */
+#wa-float{
+  position:fixed;bottom:2rem;right:2rem;z-index:999;
+  width:58px;height:58px;border-radius:50%;
+  background:#25d366;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(37,211,102,0.45);
+  text-decoration:none;transition:transform 0.25s,box-shadow 0.25s;
+  animation:wa-pulse 2.5s infinite;
+}
+#wa-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,0.6);animation:none;}
+#wa-float svg{width:30px;height:30px;fill:#fff;}
+.wa-tooltip{
+  position:absolute;right:70px;top:50%;transform:translateY(-50%);
+  background:#1a2e2c;color:#fff;font-size:0.78rem;font-weight:500;
+  padding:0.35rem 0.8rem;border-radius:8px;white-space:nowrap;
+  opacity:0;pointer-events:none;transition:opacity 0.2s;
+}
+.wa-tooltip::after{
+  content:'';position:absolute;right:-6px;top:50%;transform:translateY(-50%);
+  border:6px solid transparent;border-right:none;border-left-color:#1a2e2c;
+}
+#wa-float:hover .wa-tooltip{opacity:1;}
+@keyframes wa-pulse{
+  0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.45);}
+  50%{box-shadow:0 4px 32px rgba(37,211,102,0.75),0 0 0 8px rgba(37,211,102,0.12);}
+}
+
+/* ── MOBILE ── */
+@media(max-width:768px){
+  nav{padding:0.8rem 1.2rem;}
+  .nav-links,.nav-cta{display:none;}
+  .hamburger{display:flex;}
+  #hero{padding:6rem 1.2rem 3rem;}
+  .hero-inner{grid-template-columns:1fr;text-align:center;}
+  .hero-logo-big{display:none;}
+  .hero-btns{justify-content:center;}
+  .board-pills{justify-content:center;}
+  .section-wrap{padding:4rem 1.2rem;}
+  .contact-inner{grid-template-columns:1fr;gap:2.5rem;padding:4rem 1.2rem;}
+  .form-row{grid-template-columns:1fr;}
+  .stats-bar{gap:2rem;padding:2rem 1.2rem;}
+  footer{padding:2rem 1.2rem;}
+  #announcement-bar{padding:0.6rem 2.5rem 0.6rem 1rem;font-size:0.78rem;}
+  .visit-strip{padding:1.5rem 1.2rem;gap:1rem;}
+  #wa-float{bottom:5rem;right:1.2rem;width:52px;height:52px;}
+  #wa-float svg{width:26px;height:26px;}
+}
+</style>
+</head>
+<body data-page="home">
+
+
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-brand">
+    <div class="nav-logo-wrap">
+      <svg viewBox="0 0 80 90" xmlns="http://www.w3.org/2000/svg">
+        <path d="M40 2 L76 18 L76 52 C76 70 60 84 40 88 C20 84 4 70 4 52 L4 18 Z" fill="#1a9e8f"/>
+        <path d="M40 8 L70 22 L70 50 C70 66 56 78 40 82 C24 78 10 66 10 50 L10 22 Z" fill="white" fill-opacity="0.15"/>
+        <line x1="40" y1="8" x2="40" y2="82" stroke="white" stroke-width="1.5" opacity="0.5"/>
+        <line x1="10" y1="45" x2="70" y2="45" stroke="white" stroke-width="1.5" opacity="0.5"/>
+        <rect x="14" y="16" width="22" height="26" rx="2" fill="none" stroke="white" stroke-width="1.5"/>
+        <path d="M16 22 Q25 18 34 22" stroke="white" stroke-width="1.2" fill="none"/>
+        <line x1="18" y1="26" x2="32" y2="26" stroke="white" stroke-width="1.2"/>
+        <line x1="18" y1="30" x2="32" y2="30" stroke="white" stroke-width="1.2"/>
+        <rect x="44" y="18" width="6" height="20" rx="1" fill="white" fill-opacity="0.9"/>
+        <rect x="51" y="16" width="7" height="22" rx="1" fill="white" fill-opacity="0.7"/>
+        <rect x="59" y="19" width="5" height="19" rx="1" fill="white" fill-opacity="0.85"/>
+        <path d="M25 52 L22 70 L28 70 Z" fill="white" fill-opacity="0.9"/>
+        <rect x="23" y="49" width="4" height="5" rx="1" fill="white" fill-opacity="0.7"/>
+        <rect x="46" y="62" width="18" height="3" rx="1" fill="white" fill-opacity="0.9"/>
+        <polygon points="55,54 44,60 55,60 66,60" fill="white" fill-opacity="0.85"/>
+        <line x1="66" y1="60" x2="66" y2="68" stroke="white" stroke-width="1.5"/>
+      </svg>
+    </div>
+    <div class="nav-name">DS Vedanta Academy<small>Est. 2019 · Sindri, Dhanbad</small></div>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#subjects">Subjects</a></li>
+    <li><a href="#resources">Resources</a></li>
+    <li><a href="#teacher">Teacher</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <a href="#contact" class="nav-cta">Enquire Now</a>
+
+  <!-- Hamburger (mobile only) -->
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#subjects" onclick="closeMobileMenu()">Subjects</a>
+  <a href="#resources" onclick="closeMobileMenu()">Resources</a>
+  <a href="#teacher" onclick="closeMobileMenu()">Teacher</a>
+  <a href="#reviews" onclick="closeMobileMenu()">Reviews</a>
+  <a href="#how" onclick="closeMobileMenu()">How It Works</a>
+  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+  <a href="#contact" class="mob-cta" onclick="closeMobileMenu()">Enquire Now</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">Class 7 to 10 · Sindri, Dhanbad</div>
+      <h1>DS Vedanta<br>Academy</h1>
+      <div class="hero-slogan">Strong Foundation, Bright Future</div>
+      <p class="hero-sub">Expert coaching for Class 7, 8, 9 &amp; 10 across all main subjects. Trusted by students across CBSE, ICSE and JAC boards in Sindri, Dhanbad — since 2019.</p>
+      <div class="board-pills">
+        <span class="board-pill">Class 7</span>
+        <span class="board-pill">Class 8</span>
+        <span class="board-pill">Class 9</span>
+        <span class="board-pill">Class 10</span>
+        <span class="board-pill">CBSE</span>
+        <span class="board-pill">ICSE</span>
+        <span class="board-pill">JAC</span>
+      </div>
+      <div class="hero-btns" style="margin-top:1.8rem;">
+        <a href="#resources" class="btn-primary">Free Study Material</a>
+        <a href="#contact" class="btn-outline">Book Free Demo</a>
+      </div>
+    </div>
+    <div class="hero-logo-big">
+      <svg viewBox="0 0 160 180" xmlns="http://www.w3.org/2000/svg">
+        <path d="M80 4 L152 36 L152 104 C152 140 120 168 80 176 C40 168 8 140 8 104 L8 36 Z" fill="#1a9e8f"/>
+        <path d="M80 12 L144 40 L144 102 C144 136 114 162 80 170 C46 162 16 136 16 102 L16 40 Z" fill="white" fill-opacity="0.12"/>
+        <line x1="80" y1="12" x2="80" y2="170" stroke="white" stroke-width="2" opacity="0.4"/>
+        <line x1="16" y1="91" x2="144" y2="91" stroke="white" stroke-width="2" opacity="0.4"/>
+        <rect x="22" y="28" width="48" height="55" rx="4" fill="none" stroke="white" stroke-width="2.5"/>
+        <path d="M26 42 Q46 34 66 42" stroke="white" stroke-width="2" fill="none"/>
+        <line x1="28" y1="52" x2="62" y2="52" stroke="white" stroke-width="2"/>
+        <line x1="28" y1="62" x2="62" y2="62" stroke="white" stroke-width="2"/>
+        <line x1="28" y1="72" x2="50" y2="72" stroke="white" stroke-width="2"/>
+        <rect x="88" y="32" width="13" height="44" rx="2" fill="white" fill-opacity="0.9"/>
+        <rect x="103" y="28" width="15" height="48" rx="2" fill="white" fill-opacity="0.7"/>
+        <rect x="120" y="34" width="11" height="42" rx="2" fill="white" fill-opacity="0.85"/>
+        <path d="M50 104 L44 144 L56 144 Z" fill="white" fill-opacity="0.9"/>
+        <rect x="46" y="98" width="8" height="10" rx="2" fill="white" fill-opacity="0.7"/>
+        <rect x="90" y="126" width="42" height="6" rx="2" fill="white" fill-opacity="0.9"/>
+        <polygon points="111,106 84,120 111,120 138,120" fill="white" fill-opacity="0.85"/>
+        <line x1="138" y1="120" x2="138" y2="140" stroke="white" stroke-width="2.5"/>
+        <circle cx="138" cy="142" r="4" fill="white" fill-opacity="0.8"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-item"><div class="stat-num">100+</div><div class="stat-label">Students Taught</div></div>
+  <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Success Rate</div></div>
+  <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">Subjects Covered</div></div>
+  <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">Boards — CBSE · ICSE · JAC</div></div>
+</div>
+
+<!-- SUBJECTS -->
+<div id="subjects-bg">
+  <div class="section-wrap" id="subjects">
+    <p class="sec-label fade-in">What We Teach</p>
+    <h2 class="fade-in">Class 7 to 10 Subjects</h2>
+    <p class="sec-sub fade-in">Covering Class 7, 8, 9 &amp; 10 — strong conceptual clarity, board exam strategy, and personalised attention for every student.</p>
+    <div class="subjects-grid">
+      <div class="subj-card fade-in">
+        <span class="subj-icon">🔬</span>
+        <h3>Science</h3>
+        <p>Physics, Chemistry & Biology — NCERT mastery, numericals, diagrams, and board-pattern MCQs covered thoroughly.</p>
+        <span class="subj-tag">Most Popular</span>
+      </div>
+      <div class="subj-card fade-in">
+        <span class="subj-icon">📐</span>
+        <h3>Mathematics</h3>
+        <p>Real Numbers to Statistics — step-by-step problem solving, formula sheets, and full past paper practice.</p>
+        <span class="subj-tag">High Scoring</span>
+      </div>
+      <div class="subj-card fade-in">
+        <span class="subj-icon">🌏</span>
+        <h3>Social Science</h3>
+        <p>History, Geography, Political Science & Economics — map work, key answers and structured writing practice.</p>
+        <span class="subj-tag">All Boards</span>
+      </div>
+      <div class="subj-card fade-in">
+        <span class="subj-icon">📝</span>
+        <h3>English</h3>
+        <p>Grammar, writing skills, comprehension, literature (First Flight & Footprints) — board-pattern answers taught.</p>
+        <span class="subj-tag">All Boards</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RESOURCES -->
+<div id="resources">
+  <div class="section-wrap">
+    <p class="sec-label fade-in">Free Downloads</p>
+    <h2 class="fade-in">Study Material & PDFs</h2>
+    <p class="sec-sub fade-in">Notes, question banks, and past papers — all free. No login, no subscription needed.</p>
+
+    <div class="filter-row">
+      <button class="filter-btn active" onclick="filterClass('all', this)">All</button>
+      <button class="filter-btn" onclick="filterClass('class7', this)">Class 7</button>
+      <button class="filter-btn" onclick="filterClass('class8', this)">Class 8</button>
+      <button class="filter-btn" onclick="filterClass('class9', this)">Class 9</button>
+      <button class="filter-btn" onclick="filterClass('class10', this)">Class 10</button>
+    </div>
+
+    <!--
+    ══════════════════════════════════════════════════
+    HOW TO ADD YOUR OWN PDFs (FREE — using Google Drive)
+    ══════════════════════════════════════════════════
+    1. Upload PDF to Google Drive
+    2. Right-click → Share → "Anyone with the link" → Copy link
+    3. Get the FILE_ID from the link (the long string between /d/ and /view)
+    4. View link  → https://drive.google.com/file/d/FILE_ID/view
+    5. Download   → https://drive.google.com/uc?export=download&id=FILE_ID
+    6. Duplicate any .res-card block below and fill in your details
+    7. Set data-class="class9" or data-class="class10" for filtering
+    ══════════════════════════════════════════════════
+    -->
+
+    <div class="res-grid" id="res-grid">
+
+      <div class="res-card fade-in" data-class="class10">
+        <div class="res-meta">
+          <div class="pdf-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1a9e8f" stroke-width="1.8">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+              <polyline points="14,2 14,8 20,8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+          </div>
+          <div class="res-info">
+            <h4>Science — Light: Reflection & Refraction</h4>
+            <span>Class 10 · CBSE/ICSE/JAC · Chapter 1</span>
+          </div>
+        </div>
+        <div class="res-tags">
+          <span class="tag">Science</span>
+          <span class="tag">Physics</span>
+          <span class="tag">Chapter 1</span>
+        </div>
+        <div class="res-actions">
+          <a href="https://drive.google.com/file/d/1olzsNAvLx_CL3D8Pt8yt3o5AiDmSSkSc/view" class="btn-view" target="_blank">View PDF</a>
+          <a href="https://drive.google.com/uc?export=download&id=1olzsNAvLx_CL3D8Pt8yt3o5AiDmSSkSc" class="btn-dl" target="_blank">Download</a>
+        </div>
+      </div>
+
+      <div class="res-card fade-in" data-class="class10">
+        <div class="res-meta">
+          <div class="pdf-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1a9e8f" stroke-width="1.8">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+              <polyline points="14,2 14,8 20,8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+          </div>
+          <div class="res-info">
+            <h4>Mathematics — Real Numbers Notes</h4>
+            <span>Class 10 · All Boards · Chapter 1</span>
+          </div>
+        </div>
+        <div class="res-tags">
+          <span class="tag">Mathematics</span>
+          <span class="tag">Chapter 1</span>
+          <span class="tag">All Boards</span>
+        </div>
+        <div class="res-actions">
+          <a href="https://drive.google.com/file/d/FILE_ID/view" class="btn-view" target="_blank">View PDF</a>
+          <a href="https://drive.google.com/uc?export=download&id=FILE_ID" class="btn-dl" target="_blank">Download</a>
+        </div>
+      </div>
+
+      <div class="res-card fade-in" data-class="class10">
+        <div class="res-meta">
+          <div class="pdf-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1a9e8f" stroke-width="1.8">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+              <polyline points="14,2 14,8 20,8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+          </div>
+          <div class="res-info">
+            <h4>Science — Life Processes (Biology)</h4>
+            <span>Class 10 · All Boards · Chapter 6</span>
+          </div>
+        </div>
+        <div class="res-tags">
+          <span class="tag">Science</span>
+          <span class="tag">Biology</span>
+          <span class="tag">Chapter 6</span>
+        </div>
+        <div class="res-actions">
+          <a href="https://drive.google.com/file/d/FILE_ID/view" class="btn-view" target="_blank">View PDF</a>
+          <a href="https://drive.google.com/uc?export=download&id=FILE_ID" class="btn-dl" target="_blank">Download</a>
+        </div>
+      </div>
+
+      <div class="res-card fade-in" data-class="class10">
+        <div class="res-meta">
+          <div class="pdf-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1a9e8f" stroke-width="1.8">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+              <polyline points="14,2 14,8 20,8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+          </div>
+          <div class="res-info">
+            <h4>SST — Nationalism in India (History)</h4>
+            <span>Class 10 · CBSE · Chapter 2</span>
+          </div>
+        </div>
+        <div class="res-tags">
+          <span class="tag">Social Science</span>
+          <span class="tag">History</span>
+          <span class="tag">CBSE</span>
+        </div>
+        <div class="res-actions">
+          <a href="https://drive.google.com/file/d/FILE_ID/view" class="btn-view" target="_blank">View PDF</a>
+          <a href="https://drive.google.com/uc?export=download&id=FILE_ID" class="btn-dl" target="_blank">Download</a>
+        </div>
+      </div>
+
+      <div class="res-card fade-in" data-class="class10">
+        <div class="res-meta">
+          <div class="pdf-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1a9e8f" stroke-width="1.8">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+              <polyline points="14,2 14,8 20,8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+          </div>
+          <div class="res-info">
+            <h4>Mathematics — Triangles & Theorems</h4>
+            <span>Class 10 · All Boards · Chapter 6</span>
+          </div>
+        </div>
+        <div class="res-tags">
+          <span class="tag">Mathematics</span>
+          <span class="tag">Geometry</span>
+          <span class="tag">Chapter 6</span>
+        </div>
+        <div class="res-actions">
+          <a href="https://drive.google.com/file/d/FILE_ID/view" class="btn-view" target="_blank">View PDF</a>
+          <a href="https://drive.google.com/uc?export=download&id=FILE_ID" class="btn-dl" target="_blank">Download</a>
+        </div>
+      </div>
+
+      <div class="res-card fade-in" data-class="class10">
+        <div class="res-meta">
+          <div class="pdf-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1a9e8f" stroke-width="1.8">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+              <polyline points="14,2 14,8 20,8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+          </div>
+          <div class="res-info">
+            <h4>English — Letter & Essay Writing Guide</h4>
+            <span>Class 10 · All Boards · Writing Skills</span>
+          </div>
+        </div>
+        <div class="res-tags">
+          <span class="tag">English</span>
+          <span class="tag">Writing</span>
+          <span class="tag">All Boards</span>
+        </div>
+        <div class="res-actions">
+          <a href="https://drive.google.com/file/d/FILE_ID/view" class="btn-view" target="_blank">View PDF</a>
+          <a href="https://drive.google.com/uc?export=download&id=FILE_ID" class="btn-dl" target="_blank">Download</a>
+        </div>
+      </div>
+
+    </div><!-- end .res-grid -->
+
+    <!-- No results message — outside .res-grid -->
+    <div id="no-results">
+      <span>📂</span>
+      No materials found for this filter. More coming soon!
+    </div>
+
+    <!-- View All Resources -->
+    <div style="text-align:center;margin-top:2rem;">
+      <a href="resource.html" class="btn-outline">View All Resources →</a>
+    </div>
+
+  </div>
+</div><!-- end #resources -->
+
+<!-- HOW IT WORKS -->
+<div id="how-bg">
+  <div class="section-wrap" id="how">
+    <p class="sec-label fade-in">Simple Process</p>
+    <h2 class="fade-in">How It Works</h2>
+    <p class="sec-sub fade-in">From your first enquiry to your board result — here's how we take you there.</p>
+    <div class="steps-grid">
+      <div class="step fade-in">
+        <div class="step-num">1</div>
+        <h3>Send an Enquiry</h3>
+        <p>Call, WhatsApp, or fill the contact form. Tell us your board and which subjects you need help with.</p>
+      </div>
+      <div class="step fade-in">
+        <div class="step-num">2</div>
+        <h3>Free Demo Class</h3>
+        <p>Attend a free trial session. Experience the teaching style before you commit to anything.</p>
+      </div>
+      <div class="step fade-in">
+        <div class="step-num">3</div>
+        <h3>Join & Get Materials</h3>
+        <p>Enroll, get your batch schedule, and access all notes and PDFs on this site — completely free.</p>
+      </div>
+      <div class="step fade-in">
+        <div class="step-num">4</div>
+        <h3>Regular Tests & Results</h3>
+        <p>Weekly tests, personal feedback, and doubt-clearing sessions keep you exam-ready all year long.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY US -->
+<div class="section-wrap">
+  <p class="sec-label fade-in">Why Choose Us</p>
+  <h2 class="fade-in">The Vedanta Difference</h2>
+  <p class="sec-sub fade-in">We focus entirely on Class 10 — which means deeper expertise and better results for your boards.</p>
+  <div class="why-grid">
+    <div class="why-card fade-in"><div class="why-icon">🎯</div><div><h4>Class 7 to 10 Coverage</h4><p>From foundational Class 7 concepts to Class 10 board mastery — every student gets focused attention.</p></div></div>
+    <div class="why-card fade-in"><div class="why-icon">📋</div><div><h4>All 3 Boards Covered</h4><p>CBSE, ICSE and JAC — each board's pattern taught separately with proper strategy.</p></div></div>
+    <div class="why-card fade-in"><div class="why-icon">📄</div><div><h4>Free Study Material</h4><p>Notes, question banks, and past papers available to download on this website — always free.</p></div></div>
+    <div class="why-card fade-in"><div class="why-icon">✅</div><div><h4>Regular Testing</h4><p>Weekly unit tests and mock board papers with detailed feedback to track your progress.</p></div></div>
+    <div class="why-card fade-in"><div class="why-icon">💬</div><div><h4>Doubt Clearing Sessions</h4><p>Dedicated time set aside every week to solve individual doubts before they pile up.</p></div></div>
+    <div class="why-card fade-in"><div class="why-icon">📍</div><div><h4>Conveniently Located</h4><p>Based in Sindri, Dhanbad — easy to reach for students across the area.</p></div></div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div id="contact-bg">
+  <div class="contact-inner" id="contact">
+    <div class="contact-left">
+      <p class="sec-label fade-in">Get in Touch</p>
+      <h2 class="fade-in">Book a Free<br>Demo Class</h2>
+      <p class="sec-sub fade-in" style="margin-bottom:2.5rem;">No fees for the first class. Come, see the teaching style, and then decide. We're happy to help.</p>
+      <div class="contact-detail fade-in">
+        <div class="cd-icon">📞</div>
+        <div><div class="cd-label">Phone / WhatsApp</div><div class="cd-value">+91 94705 68366</div></div>
+      </div>
+      <div class="contact-detail fade-in">
+        <div class="cd-icon">📍</div>
+        <div><div class="cd-label">Location</div><div class="cd-value">Sindri, Dhanbad, Jharkhand</div></div>
+      </div>
+      <div class="contact-detail fade-in">
+        <div class="cd-icon">🏫</div>
+        <div><div class="cd-label">Classes For</div><div class="cd-value">Class 7–10 — CBSE, ICSE & JAC</div></div>
+      </div>
+      <div class="contact-detail fade-in">
+        <div class="cd-icon">🕗</div>
+        <div><div class="cd-label">Timing</div><div class="cd-value">Monday – Saturday, 3 PM – 7 PM</div></div>
+      </div>
+    </div>
+
+    <div class="contact-form fade-in">
+      <h3>Send an Enquiry</h3>
+      <form id="enq-form" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <input type="text" id="student-name" placeholder="Student's Name" required />
+          <input type="tel" id="student-phone" placeholder="WhatsApp Number" required />
+        </div>
+        <select id="student-class" required>
+          <option value="" disabled selected>Which Class?</option>
+          <option>Class 7</option>
+          <option>Class 8</option>
+          <option>Class 9</option>
+          <option>Class 10</option>
+        </select>
+        <select id="student-board" required>
+          <option value="" disabled selected>Which Board?</option>
+          <option>CBSE</option>
+          <option>ICSE</option>
+          <option>JAC (Jharkhand Board)</option>
+          <option>Not Sure Yet</option>
+        </select>
+        <select id="student-subject" required>
+          <option value="" disabled selected>Subject(s) Needed</option>
+          <option>Science</option>
+          <option>Mathematics</option>
+          <option>Social Science</option>
+          <option>English</option>
+          <option>All Subjects</option>
+          <option>Science + Mathematics</option>
+        </select>
+        <textarea id="student-message" placeholder="Any specific doubts, topics or questions? (Optional)"></textarea>
+        <button type="submit" class="submit-btn">Send via WhatsApp →</button>
+      </form>
+      <div id="form-success">✓ &nbsp;Redirecting to WhatsApp… We'll get back to you shortly!</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT THE TEACHER -->
+<div id="teacher-bg">
+  <div class="section-wrap" id="teacher">
+    <p class="sec-label fade-in">Meet Your Mentor</p>
+    <h2 class="fade-in">About the Teacher</h2>
+    <p class="sec-sub fade-in">The mind and passion behind DS Vedanta Academy — dedicated to making every student succeed.</p>
+    <div class="teacher-card fade-in">
+      <div class="teacher-photo-wrap">
+        <img
+          src="data:image/jpeg;base64,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"
+          alt="Deeptanu Sarkar — Founder, DS Vedanta Academy"
+          class="teacher-photo"
+        />
+        <div class="teacher-badge">Founder &amp; Mentor</div>
+      </div>
+      <div class="teacher-info">
+        <div class="teacher-name">Deeptanu Sarkar</div>
+        <div class="teacher-qual">B.Sc Physics (Hons) &nbsp;|&nbsp; Computer Engineering &nbsp;|&nbsp; 7+ Years Teaching</div>
+        <p class="teacher-bio">
+          A tech enthusiast and problem-solver at heart, Deeptanu founded DS Vedanta Academy out of a genuine passion for teaching. With a strong background in Physics and Computer Engineering, he brings a unique analytical approach to explaining Science and Mathematics — breaking down complex concepts into simple, logical steps that students actually enjoy learning.<br><br>
+          He believes deeply in student interaction — every doubt matters, every question is welcome. His goal is simple: equip the younger generation of Sindri and Dhanbad with the knowledge and confidence they need to build a bright future, starting with strong fundamentals right from Class 7.
+        </p>
+        <div class="teacher-stats">
+          <div class="t-stat"><div class="t-stat-num">7+</div><div class="t-stat-label">Years Teaching</div></div>
+          <div class="t-stat"><div class="t-stat-num">100+</div><div class="t-stat-label">Students</div></div>
+          <div class="t-stat"><div class="t-stat-num">100%</div><div class="t-stat-label">Success Rate</div></div>
+          <div class="t-stat"><div class="t-stat-num">2019</div><div class="t-stat-label">Est. Year</div></div>
+        </div>
+        <div class="teacher-tags">
+          <span class="teacher-tag">🔬 Science Specialist</span>
+          <span class="teacher-tag">📐 Mathematics Expert</span>
+          <span class="teacher-tag">💻 Tech Enthusiast</span>
+          <span class="teacher-tag">🎓 CBSE · ICSE · JAC</span>
+          <span class="teacher-tag">📍 Sindri, Dhanbad</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- REVIEWS -->
+<div id="reviews-bg">
+  <div class="section-wrap" id="reviews">
+    <p class="sec-label fade-in">Student Feedback</p>
+    <h2 class="fade-in">What Our Students Say</h2>
+    <p class="sec-sub fade-in">Real words from real students and parents who trusted DS Vedanta Academy for their Class 10 journey.</p>
+    <div class="reviews-grid">
+
+      <div class="review-card fade-in">
+        <div class="review-quote">"</div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">The way Science is taught here is completely different from school. Every concept is explained with examples and diagrams. I went from 62 to 88 in my pre-board in just 3 months.</p>
+        <div class="review-author">
+          <div class="review-avatar">R</div>
+          <div>
+            <div class="review-name">Rohit Kumar</div>
+            <div class="review-meta">Class 10 · CBSE · 2024 Batch</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card fade-in">
+        <div class="review-quote">"</div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Maths used to be my weakest subject. After joining here, I finally understood how to approach problems step by step. Scored 91 in boards — my family couldn't believe it!</p>
+        <div class="review-author">
+          <div class="review-avatar">P</div>
+          <div>
+            <div class="review-name">Priya Singh</div>
+            <div class="review-meta">Class 10 · JAC · 2024 Batch</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card fade-in">
+        <div class="review-quote">"</div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">As a parent, I was worried about my son's board preparation. The regular tests and personal feedback gave us confidence throughout the year. Highly recommended for Sindri students.</p>
+        <div class="review-author">
+          <div class="review-avatar">A</div>
+          <div>
+            <div class="review-name">Anjali Devi</div>
+            <div class="review-meta">Parent · ICSE Board · 2024</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card fade-in">
+        <div class="review-quote">"</div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Free notes on the website are a huge help. I can revise any chapter anytime. The doubt-clearing sessions before exams were especially useful for SST and English.</p>
+        <div class="review-author">
+          <div class="review-avatar">S</div>
+          <div>
+            <div class="review-name">Sneha Mahato</div>
+            <div class="review-meta">Class 10 · JAC · 2024 Batch</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card fade-in">
+        <div class="review-quote">"</div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">I joined in November thinking it was too late. But the focused revision strategy and past paper practice got me through. Passed with first division — thank you DS Vedanta!</p>
+        <div class="review-author">
+          <div class="review-avatar">M</div>
+          <div>
+            <div class="review-name">Manish Sharma</div>
+            <div class="review-meta">Class 10 · CBSE · 2024 Batch</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card fade-in">
+        <div class="review-quote">"</div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">The teaching is patient, clear and very exam-focused. My daughter used to skip Science but now she looks forward to every class. Results speak for themselves — 85 in boards.</p>
+        <div class="review-author">
+          <div class="review-avatar">V</div>
+          <div>
+            <div class="review-name">Vikram Pandey</div>
+            <div class="review-meta">Parent · CBSE Board · 2024</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<div id="gallery-bg">
+  <div class="section-wrap" id="gallery">
+    <p class="sec-label fade-in">Our Academy</p>
+    <h2 class="fade-in">A Glimpse Inside</h2>
+    <p class="sec-sub fade-in">Real learning happens here — in a focused, friendly environment built for Class 7 to 10 students.</p>
+    <div class="gallery-grid">
+
+      <!-- To add a real photo: save it in the same folder as this HTML file,
+           then replace the placeholder div with:
+           <div class="gallery-item"><img src="your-photo.jpg" alt="description"></div> -->
+
+      <div class="gallery-item fade-in">
+        <div class="gallery-placeholder">
+          <span class="g-icon">🏫</span>
+          <p>Classroom Photo<br><code>classroom.jpg</code></p>
+        </div>
+      </div>
+      <div class="gallery-item fade-in">
+        <div class="gallery-placeholder">
+          <span class="g-icon">📋</span>
+          <p>Whiteboard Session<br><code>teaching.jpg</code></p>
+        </div>
+      </div>
+      <div class="gallery-item fade-in">
+        <div class="gallery-placeholder">
+          <span class="g-icon">📚</span>
+          <p>Students Studying<br><code>students.jpg</code></p>
+        </div>
+      </div>
+      <div class="gallery-item fade-in">
+        <div class="gallery-placeholder">
+          <span class="g-icon">✏️</span>
+          <p>Test Session<br><code>test.jpg</code></p>
+        </div>
+      </div>
+      <div class="gallery-item fade-in">
+        <div class="gallery-placeholder">
+          <span class="g-icon">🏆</span>
+          <p>Results Day<br><code>results.jpg</code></p>
+        </div>
+      </div>
+      <div class="gallery-item fade-in">
+        <div class="gallery-placeholder">
+          <span class="g-icon">🎉</span>
+          <p>Academy Events<br><code>events.jpg</code></p>
+        </div>
+      </div>
+
+    </div>
+    <p style="margin-top:1.5rem;font-size:0.82rem;color:var(--muted);text-align:center;">
+      📸 Real photos coming soon — follow us for updates!
+    </p>
+  </div>
+</div>
+
+<!-- VISIT COUNTER -->
+<div class="visit-strip">
+  <span class="visit-icon">👁️</span>
+  <span class="visit-text">Students & parents who have visited this page:</span>
+  <span class="visit-count" id="visit-count">0</span>
+  <span class="visit-text">and counting!</span>
+</div>
+
+<!-- GOOGLE MAP -->
+<div id="map-bg">
+  <div class="section-wrap">
+    <p class="sec-label fade-in">Find Us</p>
+    <h2 class="fade-in">Find Us in Sindri, Dhanbad</h2>
+    <p class="sec-sub fade-in">House No. 02, Domgarh, Near Shiv Mandir, Sindri, Dhanbad 828107. Call ahead to confirm batch timings.</p>
+    <div class="map-wrap fade-in">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d633.8695952604595!2d86.49249571074053!3d23.649630166353422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f697cac2240ebd%3A0x6b097581540f1359!2sDS%20Vedanta%20Academy!5e0!3m2!1sen!2sin!4v1777008485237!5m2!1sen!2sin"        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="DS Vedanta Academy Location — Sindri, Dhanbad">
+      </iframe>
+    </div>
+    <p style="margin-top:1rem;font-size:0.85rem;color:var(--muted);">
+      📍 Sindri, Dhanbad, Jharkhand &nbsp;·&nbsp;
+      <a href="https://maps.google.com/?q=House+No+02+Domgarh+Near+Shiv+Mandir+Sindri+Dhanbad+Jharkhand+828107" target="_blank" style="color:var(--teal);font-weight:600;text-decoration:none;">Open in Google Maps →</a>
+    </p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">DS <span>Vedanta Academy</span></div>
+  <p style="margin-top:0.4rem;">Strong Foundation, Bright Future</p>
+  <p style="margin-top:0.3rem;">House No. 02, Domgarh, Near Shiv Mandir, Sindri, Dhanbad 828107</p>
+  <p style="margin-top:0.3rem;">+91 94705 68366 &nbsp;·&nbsp; DSvedantaacademy@gmail.com &nbsp;·&nbsp; Class 7–10 · CBSE · ICSE · JAC</p>
+  <p style="margin-top:0.8rem;">© 2019–2026 DS Vedanta Academy, Sindri, Dhanbad. Est. 2019. All study materials free.</p>
+</footer>
+
+<!-- CALL FLOATING BUTTON -->
+<a id="call-float" href="tel:+919470568366" aria-label="Call DS Vedanta Academy">
+  <span class="call-tooltip">Call us!</span>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+  </svg>
+</a>
+
+<!-- WHATSAPP FLOATING BUTTON -->
+<a id="wa-float" href="https://wa.me/919470568366?text=Hello%20DS%20Vedanta%20Academy!%20I%20would%20like%20to%20enquire%20about%20Class%2010%20tuitions." target="_blank" aria-label="Chat on WhatsApp">
+  <span class="wa-tooltip">Chat with us!</span>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+  </svg>
+</a>
+
+<script>
+  /* ── HAMBURGER MENU ── */
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  hamburger.addEventListener('click', function () {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+
+  function closeMobileMenu() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  }
+
+  /* ── FILTER (Class 9 / Class 10) ── */
+  function filterClass(cls, btn) {
+    document.querySelectorAll('.filter-btn').forEach(function (b) {
+      b.classList.remove('active');
+    });
+    btn.classList.add('active');
+
+    var cards = document.querySelectorAll('.res-card');
+    var visible = 0;
+
+    cards.forEach(function (card) {
+      if (cls === 'all' || card.dataset.class === cls) {
+        card.style.display = '';
+        visible++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    var noResults = document.getElementById('no-results');
+    noResults.style.display = visible === 0 ? 'block' : 'none';
+  }
+
+  /* ── WHATSAPP FORM SUBMIT ── */
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    var name    = document.getElementById('student-name').value.trim();
+    var phone   = document.getElementById('student-phone').value.trim();
+    var cls     = document.getElementById('student-class').value;
+    var board   = document.getElementById('student-board').value;
+    var subject = document.getElementById('student-subject').value;
+    var message = document.getElementById('student-message').value.trim();
+
+    var waText =
+      'Hello DS Vedanta Academy!%0A' +
+      '-----------------------------%0A' +
+      'Name: ' + encodeURIComponent(name) + '%0A' +
+      'Phone: ' + encodeURIComponent(phone) + '%0A' +
+      'Class: ' + encodeURIComponent(cls) + '%0A' +
+      'Board: ' + encodeURIComponent(board) + '%0A' +
+      'Subject(s): ' + encodeURIComponent(subject) +
+      (message ? '%0AMessage: ' + encodeURIComponent(message) : '') +
+      '%0A-----------------------------%0A' +
+      'I would like to book a free demo class.';
+
+    document.getElementById('enq-form').style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+
+    setTimeout(function () {
+      window.open('https://wa.me/919470568366?text=' + waText, '_blank');
+    }, 600);
+  }
+
+  /* ── SCROLL FADE IN ── */
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(function (el) {
+    observer.observe(el);
+  });
+  /* ── VISIT COUNTER ── */
+  (function () {
+    var key = 'dsva_visits';
+    var stored = parseInt(localStorage.getItem(key)) || 247;
+    stored += 1;
+    localStorage.setItem(key, stored);
+    var el = document.getElementById('visit-count');
+    if (!el) return;
+    var target = stored;
+    var start = Math.max(0, target - 40);
+    var current = start;
+    var step = Math.ceil((target - start) / 40);
+    var timer = setInterval(function () {
+      current += step;
+      if (current >= target) { current = target; clearInterval(timer); }
+      el.textContent = current.toLocaleString('en-IN');
+    }, 35);
+  })();
+
+</script>
+<script src="pixie.js"></script>
+<script src="sidebar.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js');
+  }
+</script>
+</body>
+</html>
