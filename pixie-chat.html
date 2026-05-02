@@ -487,12 +487,6 @@ body{
 // ══════════════════════════════════════
 
 // All 4 Groq API keys — rotated automatically
-const GROQ_KEYS = [
-  "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",
-  "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",
-  "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",
-  "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"
-];
 
 const GROQ_TEXT_MODEL = "llama-3.3-70b-versatile";
 const GROQ_VIS_MODEL  = "meta-llama/llama-4-scout-17b-16e-instruct";
@@ -840,23 +834,15 @@ async function callGroq(apiKey, hasImage) {
     ];
   }
 
-  const res = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+  const res = await fetch('/api/chat', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${apiKey}`
-    },
-    body: JSON.stringify({
-      model,
-      messages,
-      max_tokens: 1500,
-      temperature: 0.7
-    })
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ model, messages })
   });
 
   if (!res.ok) {
     const err = await res.json().catch(() => ({}));
-    const errorObj = new Error(err.error?.message || `Groq error ${res.status}`);
+    const errorObj = new Error(err.error || `Error ${res.status}`);
     errorObj.status = res.status;
     throw errorObj;
   }
