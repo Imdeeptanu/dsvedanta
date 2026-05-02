@@ -50,10 +50,9 @@ body{
 #pixie-page {
   display: flex;
   flex-direction: column;
-  /* Use fixed positioning to bypass all PWA viewport bugs */
   position: fixed;
   top: 0;
-  left: 64px; /* Leaves room for the desktop sidebar */
+  left: 64px;
   right: 0;
   bottom: 0;
   background: var(--chat-bg);
@@ -73,29 +72,24 @@ body{
   border-bottom:1px solid rgba(255,255,255,0.08);
   position:relative;
   z-index:10;
-  /* Also pad top for status bar in PWA */
   padding-top: env(safe-area-inset-top);
   height: calc(var(--header-h) + env(safe-area-inset-top));
 }
 
 .topbar-left{display:flex;align-items:center;gap:0.85rem;min-width:0;overflow:hidden;}
-
 .pixie-avatar-wrap{position:relative;flex-shrink:0;}
-
 .pixie-avatar{
   width:42px;height:42px;border-radius:50%;
   background:linear-gradient(135deg,var(--teal),var(--teal-mid));
   display:flex;align-items:center;justify-content:center;
   font-size:1.3rem;border:2px solid rgba(255,255,255,0.2);flex-shrink:0;
 }
-
 .pixie-online-dot{
   position:absolute;bottom:1px;right:1px;
   width:10px;height:10px;border-radius:50%;
   background:#4ade80;border:2px solid var(--teal-deep);
   animation:blink 2s infinite;
 }
-
 @keyframes blink{0%,100%{opacity:1;}50%{opacity:0.4;}}
 
 .topbar-info{overflow:hidden;}
@@ -103,7 +97,6 @@ body{
 .topbar-info span{font-size:0.72rem;color:rgba(255,255,255,0.6);font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;}
 
 .topbar-right{display:flex;align-items:center;gap:0.5rem;flex-shrink:0;}
-
 .topbar-btn{
   background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);
   color:rgba(255,255,255,0.8);padding:0.4rem 0.85rem;border-radius:50px;
@@ -112,6 +105,17 @@ body{
 }
 .topbar-btn:hover{background:rgba(255,255,255,0.18);color:#fff;}
 .topbar-btn.hidden{display:none;}
+
+/* AI STATUS BADGE */
+#ai-status-badge{
+  font-size:0.68rem;color:rgba(255,255,255,0.5);font-weight:500;
+  padding:0.25rem 0.6rem;background:rgba(255,255,255,0.05);border-radius:50px;
+  border:1px solid rgba(255,255,255,0.08);display:none;
+  transition:all 0.3s;
+}
+#ai-status-badge.show{display:block;}
+#ai-status-badge.groq{color:#4ade80;border-color:rgba(74,222,128,0.2);background:rgba(74,222,128,0.05);}
+#ai-status-badge.cloudflare{color:#f59e0b;border-color:rgba(245,158,11,0.2);background:rgba(245,158,11,0.05);}
 
 #student-name-badge{
   font-size:0.78rem;color:rgba(255,255,255,0.7);font-weight:500;
@@ -129,7 +133,6 @@ body{
 #welcome-overlay.hiding{opacity:0;transform:scale(0.96);pointer-events:none;}
 
 .welcome-inner{max-width:420px;width:100%;text-align:center;}
-
 .welcome-avatar{
   width:80px;height:80px;border-radius:50%;
   background:linear-gradient(135deg,rgba(255,255,255,0.15),rgba(255,255,255,0.05));
@@ -181,7 +184,6 @@ body{
 #quickstart p{font-size:0.82rem;color:var(--muted);text-align:center;margin-bottom:0.5rem;}
 
 .qs-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.7rem;width:100%;max-width:480px;}
-
 .qs-btn{
   background:#fff;border:1.5px solid var(--border);border-radius:14px;
   padding:1rem 0.85rem;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;
@@ -247,7 +249,6 @@ body{
   gap: 0.6rem;
   position: relative;
   z-index: 10;
-  /* margin-bottom: 62px; REMOVE THIS LINE ENTIRELY */
 }
 
 #img-preview-strip{
@@ -331,26 +332,19 @@ body{
 /* MOBILE */
 @media(max-width:768px){
 #pixie-page {
-    left: 0; /* Reset desktop sidebar offset */
-    bottom: 62px; /* Pin perfectly above the mobile bottom nav */
-    padding-bottom: env(safe-area-inset-bottom); /* Fix iPhone home bar */
+    left: 0;
+    bottom: 62px;
+    padding-bottom: env(safe-area-inset-bottom);
   }
-  
-  /* Make sure there are no ghost margins on mobile either */
-  #input-area {
-    margin-bottom: 0 !important; 
-  }
-  
+  #input-area { margin-bottom: 0 !important; }
   #pixie-topbar{padding:0 1rem;}
   .topbar-btn span:not(.btn-icon){display:none;}
   .topbar-btn{padding:0.4rem 0.55rem;}
   #student-name-badge{display:none !important;}
+  #ai-status-badge{display:none !important;}
   .msg-bubble{max-width:85%;font-size:0.86rem;}
   .qs-grid{grid-template-columns:1fr 1fr;gap:0.6rem;}
   #messages-area{padding:1rem 0.75rem;}
-  
-
-  
   #toast{bottom:calc(62px + 2rem);}
   .photo-tip-banner{max-width:90%;margin-left:0;}
 }
@@ -398,6 +392,7 @@ body{
     </div>
     <div class="topbar-right">
       <span id="student-name-badge"></span>
+      <span id="ai-status-badge"></span>
       <div class="dl-wrap">
         <button class="topbar-btn hidden" id="dl-btn" onclick="toggleDownloadMenu()">
           <span class="btn-icon">⬇️</span>
@@ -443,7 +438,6 @@ body{
         </button>
       </div>
     </div>
-
   </div>
 
   <!-- IMAGE PREVIEW STRIP -->
@@ -489,11 +483,27 @@ body{
 
 <script>
 // ══════════════════════════════════════
-// CONFIG
+// CONFIG — Multi-key rotation + Cloudflare fallback
 // ══════════════════════════════════════
-const GROQ_API_KEY    = "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";
+
+// All 4 Groq API keys — rotated automatically
+const GROQ_KEYS = [
+  "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",
+  "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",
+  "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",
+  "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"
+];
+
 const GROQ_TEXT_MODEL = "llama-3.3-70b-versatile";
 const GROQ_VIS_MODEL  = "meta-llama/llama-4-scout-17b-16e-instruct";
+
+// Cloudflare Workers AI fallback (via pixie-proxy worker — text only, no vision)
+
+// Track which Groq key to try next
+let currentGroqKeyIndex = 0;
+
+// Track which AI responded last (for status badge)
+let lastAiProvider = 'groq';
 
 const SYSTEM_PROMPT = `You are Pixie, a warm, friendly and highly knowledgeable AI study buddy for DS Vedanta Academy — a coaching centre in Sindri, Dhanbad, Jharkhand, run by Deeptanu Sir.
 
@@ -578,28 +588,6 @@ function hideWelcome(greet) {
   setTimeout(() => {
     overlay.style.display = 'none';
     updateNameBadge();
-
-    // Force layout recalculation for Android PWA
-    // const inputArea = document.getElementById('input-area');
-    // const pixiePage = document.getElementById('pixie-page');
-    // if (inputArea && pixiePage) {
-    //   pixiePage.style.display = 'none';
-    //   pixiePage.offsetHeight;
-    //   pixiePage.style.display = '';
-    //   pixiePage.offsetHeight;
-
-    //   inputArea.style.position = 'relative';
-    //   inputArea.offsetHeight;
-    //   inputArea.style.position = '';
-    //   inputArea.offsetHeight;
-
-    //   setTimeout(() => {
-    //     pixiePage.style.display = 'none';
-    //     pixiePage.offsetHeight;
-    //     pixiePage.style.display = '';
-    //   }, 100);
-    // }
-
     if (greet) {
       setTimeout(() => {
         addPixieMessage(
@@ -615,6 +603,17 @@ function updateNameBadge() {
   if (studentName && studentName !== 'Student') {
     badge.textContent = `👋 ${studentName}`;
     badge.style.display = 'block';
+  }
+}
+
+function updateAiStatusBadge(provider) {
+  const badge = document.getElementById('ai-status-badge');
+  if (provider === 'groq') {
+    badge.textContent = `⚡ Groq AI`;
+    badge.className = 'groq show';
+  } else if (provider === 'cloudflare') {
+    badge.textContent = `☁️ Cloudflare AI`;
+    badge.className = 'cloudflare show';
   }
 }
 
@@ -732,9 +731,7 @@ async function sendMessage() {
   const displayText = userText || (image ? '📸 Photo uploaded' : '');
   addUserMessage(displayText, image ? image.dataUrl : null);
 
-  if (image) {
-    addPhotoTipBanner();
-  }
+  if (image) addPhotoTipBanner();
 
   if (image) {
     const userContent = [];
@@ -754,13 +751,14 @@ async function sendMessage() {
   updateSendBtn();
 
   try {
-    const reply = await callGroq(!!image);
+    const { reply, provider } = await callAIWithFallback(!!image);
     typingEl.remove();
     chatHistory.push({ role: 'assistant', content: reply });
     addPixieMessage(reply);
+    updateAiStatusBadge(provider);
   } catch (err) {
     typingEl.remove();
-    addPixieMessage("Oops! I had trouble connecting. Please check your internet and try again 😊");
+    addPixieMessage("Oops! All AI services are temporarily busy. Please wait a minute and try again 😊");
     chatHistory.pop();
   }
 
@@ -769,9 +767,59 @@ async function sendMessage() {
 }
 
 // ══════════════════════════════════════
-// API CALL — GROQ (text + vision)
+// AI CALL WITH FULL FALLBACK CHAIN
+// Priority: Groq Key1 → Key2 → Key3 → Key4 → Cloudflare
+// Images: Groq only (Cloudflare has no vision)
 // ══════════════════════════════════════
-async function callGroq(hasImage) {
+async function callAIWithFallback(hasImage) {
+  // Try all Groq keys in rotation order starting from currentGroqKeyIndex
+  for (let attempt = 0; attempt < GROQ_KEYS.length; attempt++) {
+    const keyIndex = (currentGroqKeyIndex + attempt) % GROQ_KEYS.length;
+    try {
+      const reply = await callGroq(GROQ_KEYS[keyIndex], hasImage);
+      // Success — advance the key index for next time (round-robin load balancing)
+      currentGroqKeyIndex = (keyIndex + 1) % GROQ_KEYS.length;
+      return { reply, provider: 'groq' };
+    } catch (err) {
+      const isRateLimit = err.message && (
+        err.message.includes('rate_limit') ||
+        err.message.includes('429') ||
+        err.message.includes('quota') ||
+        err.message.includes('limit')
+      );
+      if (isRateLimit || err.status === 429) {
+        // This key is rate limited — try next key
+        console.warn(`Groq key ${keyIndex + 1} rate limited, trying next...`);
+        continue;
+      } else {
+        // Non-rate-limit error (network, auth, etc.) — also try next key
+        console.warn(`Groq key ${keyIndex + 1} failed:`, err.message);
+        continue;
+      }
+    }
+  }
+
+  // All 4 Groq keys exhausted
+  if (hasImage) {
+    // Can't do vision on Cloudflare — throw with helpful message
+    throw new Error('All Groq keys rate limited and image requires Groq vision. Please wait a minute.');
+  }
+
+  // Try Cloudflare as final fallback for text questions
+  try {
+    console.log('All Groq keys exhausted, falling back to Cloudflare AI...');
+    const reply = await callCloudflare();
+    return { reply, provider: 'cloudflare' };
+  } catch (cfErr) {
+    console.error('Cloudflare also failed:', cfErr.message);
+    throw new Error('All AI services unavailable');
+  }
+}
+
+// ══════════════════════════════════════
+// GROQ API CALL
+// ══════════════════════════════════════
+async function callGroq(apiKey, hasImage) {
   const model = hasImage ? GROQ_VIS_MODEL : GROQ_TEXT_MODEL;
 
   let messages;
@@ -796,7 +844,7 @@ async function callGroq(hasImage) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${GROQ_API_KEY}`
+      'Authorization': `Bearer ${apiKey}`
     },
     body: JSON.stringify({
       model,
@@ -808,10 +856,47 @@ async function callGroq(hasImage) {
 
   if (!res.ok) {
     const err = await res.json().catch(() => ({}));
-    throw new Error(err.error?.message || 'Groq API error');
+    const errorObj = new Error(err.error?.message || `Groq error ${res.status}`);
+    errorObj.status = res.status;
+    throw errorObj;
   }
+
   const data = await res.json();
   return data.choices[0].message.content;
+}
+
+// ══════════════════════════════════════
+// CLOUDFLARE WORKERS AI CALL (via pixie-proxy worker — fixes CORS)
+// ══════════════════════════════════════
+async function callCloudflare() {
+  // Build a simple text-only message history
+  const messages = [
+    { role: 'system', content: SYSTEM_PROMPT },
+    ...chatHistory.map(m => ({
+      role: m.role,
+      content: typeof m.content === 'string'
+        ? m.content
+        : m.content.map(c => c.text || '').filter(Boolean).join(' ') || 'Sent an image.'
+    }))
+  ];
+
+  // Call through pixie-proxy Worker (avoids CORS issues)
+  const res = await fetch('https://pixie-proxy.dsvedantaacademy.workers.dev/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ messages })
+  });
+
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new Error(err.error || `Cloudflare proxy error ${res.status}`);
+  }
+
+  const data = await res.json();
+  // Worker returns { result: { response: "..." } }
+  const reply = data.result?.response;
+  if (!reply) throw new Error('Empty response from Cloudflare');
+  return reply;
 }
 
 // ══════════════════════════════════════
@@ -948,6 +1033,7 @@ function confirmNewChat() {
   if (qs) qs.style.display = '';
   document.getElementById('img-preview-strip').classList.remove('show');
   document.getElementById('dl-btn').classList.add('hidden');
+  document.getElementById('ai-status-badge').className = '';
   closeDlDropdown();
   document.getElementById('chat-input').value = '';
   document.getElementById('chat-input').style.height = 'auto';
