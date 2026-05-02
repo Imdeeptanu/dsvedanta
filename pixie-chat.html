@@ -494,10 +494,10 @@ const GROQ_VIS_MODEL  = "meta-llama/llama-4-scout-17b-16e-instruct";
 // Cloudflare Workers AI fallback (via pixie-proxy worker — text only, no vision)
 
 // Track which Groq key to try next
-let currentGroqKeyIndex = 0;
+
 
 // Track which AI responded last (for status badge)
-let lastAiProvider = 'groq';
+
 
 const SYSTEM_PROMPT = `You are Pixie, a warm, friendly and highly knowledgeable AI study buddy for DS Vedanta Academy — a coaching centre in Sindri, Dhanbad, Jharkhand, run by Deeptanu Sir.
 
@@ -766,46 +766,19 @@ async function sendMessage() {
 // Images: Groq only (Cloudflare has no vision)
 // ══════════════════════════════════════
 async function callAIWithFallback(hasImage) {
-  // Try all Groq keys in rotation order starting from currentGroqKeyIndex
-  for (let attempt = 0; attempt < GROQ_KEYS.length; attempt++) {
-    const keyIndex = (currentGroqKeyIndex + attempt) % GROQ_KEYS.length;
-    try {
-      const reply = await callGroq(GROQ_KEYS[keyIndex], hasImage);
-      // Success — advance the key index for next time (round-robin load balancing)
-      currentGroqKeyIndex = (keyIndex + 1) % GROQ_KEYS.length;
-      return { reply, provider: 'groq' };
-    } catch (err) {
-      const isRateLimit = err.message && (
-        err.message.includes('rate_limit') ||
-        err.message.includes('429') ||
-        err.message.includes('quota') ||
-        err.message.includes('limit')
-      );
-      if (isRateLimit || err.status === 429) {
-        // This key is rate limited — try next key
-        console.warn(`Groq key ${keyIndex + 1} rate limited, trying next...`);
-        continue;
-      } else {
-        // Non-rate-limit error (network, auth, etc.) — also try next key
-        console.warn(`Groq key ${keyIndex + 1} failed:`, err.message);
-        continue;
-      }
-    }
-  }
-
-  // All 4 Groq keys exhausted
-  if (hasImage) {
-    // Can't do vision on Cloudflare — throw with helpful message
-    throw new Error('All Groq keys rate limited and image requires Groq vision. Please wait a minute.');
-  }
-
-  // Try Cloudflare as final fallback for text questions
   try {
-    console.log('All Groq keys exhausted, falling back to Cloudflare AI...');
+    const reply = await callGroq(null, hasImage);
+    return { reply, provider: 'groq' };
+  } catch (err) {
+    console.warn('Groq proxy failed:', err.message);
+  }
+  if (hasImage) {
+    throw new Error('Image requests require Groq. Please wait a minute and try again.');
+  }
+  try {
     const reply = await callCloudflare();
     return { reply, provider: 'cloudflare' };
   } catch (cfErr) {
-    console.error('Cloudflare also failed:', cfErr.message);
     throw new Error('All AI services unavailable');
   }
 }
